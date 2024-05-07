@@ -3437,6 +3437,31 @@ h1.page-title + .tag-cloud-list {
   bottom: 30px;
   padding: 0 8%;
   width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 100%;
 }
 @media screen and (max-width: 768px) {
   #page-header #post-info {
@@ -3539,6 +3564,18 @@ h1.page-title + .tag-cloud-list {
   margin-bottom: 30px;
 }
 #post > #post-info .post-title {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   padding-bottom: 4px;
   border-bottom: 1px solid var(--light-grey);
   color: var(--text-highlight-color);
@@ -3569,11 +3606,24 @@ h1.page-title + .tag-cloud-list {
 #post-info #post-meta {
   color: var(--light-grey);
   font-size: 95%;
-}
-@media screen and (min-width: 768px) {
-  #post-info #post-meta > .meta-secondline > span:first-child {
-    display: none;
-  }
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 @media screen and (max-width: 768px) {
   #post-info #post-meta {
@@ -3585,7 +3635,8 @@ h1.page-title + .tag-cloud-list {
   }
 }
 #post-info #post-meta .post-meta-separator {
-  margin: 0 5px;
+  margin: 0 3px;
+  padding-left: 5px;
 }
 #post-info #post-meta .post-meta-icon {
   margin-right: 4px;
@@ -3688,23 +3739,12 @@ h1.page-title + .tag-cloud-list {
   display: inline-block;
   padding: 0 0 0 14px;
 }
+#nav .menus_items .menus_item .icat_menus_item .menus_item_child,
+#nav .menus_items .menus_item position: relative .menus_item_child,
+#nav .menus_items .menus_item display: inline-block .menus_item_child,
+#nav .menus_items .menus_item padding: 0 0 0 14px .menus_item_child,
 #nav .menus_items .menus_item:hover .menus_item_child {
   display: block;
-}
-#nav .menus_items .menus_item:hover > a > i:last-child {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-#nav .menus_items .menus_item > a > i:last-child {
-  padding: 4px;
-  -webkit-transition: -webkit-transform 0.3s;
-  -moz-transition: -moz-transform 0.3s;
-  -o-transition: -o-transform 0.3s;
-  -ms-transition: -ms-transform 0.3s;
-  transition: transform 0.3s;
 }
 #nav .menus_items .menus_item .menus_item_child {
   position: absolute;
@@ -4695,6 +4735,9 @@ h1.page-title + .tag-cloud-list {
 }
 #sidebar #sidebar-menus .menus_items {
   padding: 0 10px;
+}
+#sidebar #sidebar-menus .menus_items .menus_item {
+  margin: 10px 0;
 }
 #sidebar #sidebar-menus .menus_items .site-page {
   position: relative;
