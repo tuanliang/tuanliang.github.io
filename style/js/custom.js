@@ -35,3 +35,21 @@ function PublicSacrificeDay() {
 // 0918 - 九一八事变
 // 1109 - 娣外公忌辰
 // 1213 - 南京公祭日
+var bywind = {
+  hideTodayCard: function () {
+    console.log(11);
+    document.getElementById("todayCard") &&
+      document.getElementById("todayCard").classList.add("hide");
+  },
+};
+document.querySelector(".topGroup").onmouseenter = function () {
+  console.log(2);
+};
+document.querySelector(".topGroup").onmouseleave = function () {
+  console.log(3);
+  document.getElementById("todayCard").classList.remove("hide"),
+    (document.getElementById("todayCard").style.zIndex = 1);
+};
+function toAbout() {
+  window.location.href = "https://shiyi11.online/about/";
+}
