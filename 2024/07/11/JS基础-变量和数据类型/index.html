@@ -1,0 +1,460 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JS基础_变量和数据类型 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS基础_变量和数据类型">
+<meta property="og:url" content="https://tuanliang.github.io/2024/07/11/JS%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="JS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/walk.png">
+<meta property="article:published_time" content="2024-07-11T00:00:08.000Z">
+<meta property="article:modified_time" content="2024-08-12T15:43:12.038Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/walk.png"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/07/11/JS%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JS基础_变量和数据类型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-12 23:43:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/walk.png')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">JS基础_变量和数据类型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-11T00:00:08.000Z" title="发表于 2024-07-11 08:00:08">2024-07-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-12T15:43:12.038Z" title="更新于 2024-08-12 23:43:12">2024-08-12</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JS%E5%9F%BA%E7%A1%80/">JS基础</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JS基础_变量和数据类型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="VSCode插件和配置"><a href="#VSCode插件和配置" class="headerlink" title="VSCode插件和配置"></a>VSCode插件和配置</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683442154094-498bf848-9ab3-4360-baad-d046417af499.png#averageHue=%23a1b3b1&clientId=ub8aa0559-b6f7-4&from=paste&height=195&id=uc07a23ca&originHeight=271&originWidth=458&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=26286&status=done&style=none&taskId=u770f02c5-2282-4b30-bd75-3d039d71b99&title=&width=328.7722473144531" alt="image.png"><br>输入<code>clg</code>即可输入console.log()</p>
+<p>在setting.json添加</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 大括号连线设置</span></span><br><span class="line">  <span class="attr">&quot;editor.bracketPairColorization.enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.guides.bracketPairs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;active&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>选中大括号，可以查看范围</p>
+<h2 id="变量的命名格式"><a href="#变量的命名格式" class="headerlink" title="变量的命名格式"></a>变量的命名格式</h2><ul>
+<li>在JavaScript中如何命名一个变量呢？包含两部分：<ul>
+<li><strong>变量的声明：</strong>在JavaScript中声明一个变量使用var关键字（后续学习ES6还有let、const声明方式）</li>
+<li><strong>变量的赋值</strong>：使用 &#x3D; 给变量进行赋值；</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683442840399-301017e6-fbb8-4f87-a04f-a2dacd031d04.png#averageHue=%23769558&clientId=ub8aa0559-b6f7-4&from=paste&height=47&id=udecd5157&originHeight=59&originWidth=493&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=8302&status=done&style=none&taskId=uac5eef98-64bc-4c3a-8974-e22b1546752&title=&width=390.49503475623425" alt="image.png"></li>
+</ul>
+</li>
+<li>这个过程也可以分开操作：</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683442847469-25e03ada-619e-4e64-ae0e-167eebdb0e6e.png#averageHue=%237a985d&clientId=ub8aa0559-b6f7-4&from=paste&height=90&id=uda4fefd5&originHeight=113&originWidth=624&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=14228&status=done&style=none&taskId=u7933c41b-74f8-4964-a446-565bcce4b41&title=&width=494.25740707482794" alt="image.png"></li>
+<li>同时声明多个变量：</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683442864119-c91f3969-5031-4c6c-af7b-52e705bc784e.png#averageHue=%23648255&clientId=ub8aa0559-b6f7-4&from=paste&height=163&id=u60101505&originHeight=206&originWidth=1215&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=64531&status=done&style=none&taskId=uef48906a-d622-45f0-864b-561afe5ac1c&title=&width=962.3762012755063" alt="image.png"></li>
+</ul>
+<h2 id="变量的命名规范"><a href="#变量的命名规范" class="headerlink" title="变量的命名规范"></a>变量的命名规范</h2><ul>
+<li><strong>变量命名规则：必须遵守</strong><ul>
+<li>1.第一个字符必须是一个字母、下划线（ _ ）或一个美元符号（ $ ）</li>
+<li>2.其他字符可以是字母、下划线、美元符号或数字</li>
+<li>3.不能使用关键字和保留字命名：</li>
+<li>4.变量严格区分大小写</li>
+</ul>
+</li>
+<li><strong>变量命名规范：建议遵守</strong><ul>
+<li>多个单词使用驼峰标识；</li>
+<li>赋值 &#x3D; 两边都加上一个空格；</li>
+<li>一条语句结束后加上分号; 也有很多人的习惯是不加；</li>
+<li>变量应该做到见名知意；</li>
+</ul>
+</li>
+</ul>
+<h2 id="变量的使用注意"><a href="#变量的使用注意" class="headerlink" title="变量的使用注意"></a>变量的使用注意</h2><ul>
+<li>注意一：如果一个变量未声明（declaration）就直接使用，那么会报错；<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683443055468-f235a638-4e8f-4650-9a4c-781b34e08b82.png#averageHue=%23c2b39a&clientId=ub8aa0559-b6f7-4&from=paste&height=92&id=u06b350a7&originHeight=116&originWidth=1163&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=40023&status=done&style=none&taskId=ud91636e6-cfda-4115-89db-acce71be66c&title=&width=921.1880840192706" alt="image.png"></li>
+</ul>
+</li>
+<li>注意二：如果一个变量有声明，但是没有赋值，那么默认值是undefined<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683443061993-d6070bf6-4f24-42a1-a5de-4fc464cd8104.png#averageHue=%23ad9e8f&clientId=ub8aa0559-b6f7-4&from=paste&height=86&id=ue18489fd&originHeight=108&originWidth=1039&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=18677&status=done&style=none&taskId=uc6cf8855-2626-4ca2-a9d0-79b08152175&title=&width=822.9702659467087" alt="image.png"></li>
+</ul>
+</li>
+<li>注意三：如果没有使用var声明变量也可以，但是不推荐（事实上会被添加到window对象上）<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683443068581-ce5bc3b7-cc6d-4377-9946-74930d01db91.png#averageHue=%23a49a7d&clientId=ub8aa0559-b6f7-4&from=paste&height=124&id=u89fd199f&originHeight=156&originWidth=982&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=39808&status=done&style=none&taskId=u4425d578-c60b-45f0-bf32-915257f61b5&title=&width=777.8217528004503" alt="image.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h2><ul>
+<li>在 JavaScript 中有 8 种基本的数据类型（7 种原始类型和 1 种复杂类型）<ul>
+<li>Number</li>
+<li>String</li>
+<li>Boolean</li>
+<li>Undefined</li>
+<li>Null</li>
+<li>Object</li>
+<li>BigInt（后续了解）</li>
+<li>Symbol（后续了解）</li>
+</ul>
+</li>
+</ul>
+<h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><ul>
+<li>对一个值使用 typeof 操作符会返回下列字符串之一:<ul>
+<li>“undefined”表示值未定义;</li>
+<li>“boolean”表示值为布尔值;</li>
+<li>“string”表示值为字符串;</li>
+<li>“number”表示值为数值;</li>
+<li>“object”表示值为对象(而不是函数)或 null;</li>
+<li>“function”表示值为函数;</li>
+<li>“symbol”表示值为符号；</li>
+</ul>
+</li>
+<li>typeof()的用法：<ul>
+<li>你可能还会遇到另一种语法：typeof(x)，它与 typeof x 相同；</li>
+<li>typeof是一个操作符，并非是一个函数，()只是将后续的内容当做一个整体而已；</li>
+</ul>
+</li>
+</ul>
+<h2 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h2><ul>
+<li>number 类型代表<strong>整数</strong>和<strong>浮点数</strong>。<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683443815432-201840ea-c6a9-49f2-ab02-9ca37e2f212c.png#averageHue=%23858b82&clientId=ub8aa0559-b6f7-4&from=paste&height=67&id=u22f6b8c3&originHeight=84&originWidth=591&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=14397&status=done&style=none&taskId=uf3c4a407-042f-4597-8533-dc52116a27a&title=&width=468.1187942006784" alt="image.png"></li>
+</ul>
+</li>
+<li>数字number可以有很多操作，比如，乘法 *、除法 &#x2F;、加法 +、减法 - 等等。</li>
+<li>除了常规的数字，还包括所谓的“特殊数值”也属于Number类型（了解）<ul>
+<li><strong>Infinity</strong>：代表数学概念中的 <strong>无穷大 ∞</strong>，也可以表示-Infinity；<ul>
+<li>比如 1&#x2F;0 得到的就是无穷大；</li>
+</ul>
+</li>
+<li><strong>NaN</strong>：NaN 代表一个<strong>计算错误</strong>，它是一个<strong>错误的操作</strong>所得到的结果；<ul>
+<li>比如 字符串和一个数字相乘；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数字表示的范围：<ul>
+<li>最小正数值：Number.MIN_VALUE，这个值为： 5e-324，小于这个的数字会被转化为0</li>
+<li>最大正数值：Number.MAX_VALUE，这个值为： 1.7976931348623157e+308</li>
+</ul>
+</li>
+<li><strong>isNaN</strong><ul>
+<li>用于判断是否不是一个数字。不是数字返回true，是数字返回false。</li>
+</ul>
+</li>
+</ul>
+<h2 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h2><ul>
+<li>JavaScript 中的字符串必须被括在引号里，有三种包含字符串的方式。<ul>
+<li>双引号：”Hello”</li>
+<li>单引号：’Hello’</li>
+<li>反引号：<code>Hello</code>（ES6之后学习）</li>
+</ul>
+</li>
+<li>前后的引号类型必须一致：<ul>
+<li>如果在字符串里面本身包括单引号，可以使用双引号；</li>
+<li>如果在字符串里面本身包括双引号，可以使用单引号；</li>
+</ul>
+</li>
+<li>除了普通的可打印字符以外，一些有特殊功能的字符可以通过转义字符的形式放入字符串中：<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683444280464-19661439-3090-491a-b0a1-d086c61b00f4.png#averageHue=%23fae9d7&clientId=ub8aa0559-b6f7-4&from=paste&height=320&id=u5a24de22&originHeight=404&originWidth=933&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=32644&status=done&style=none&taskId=u3aaa39a6-feb9-4d12-a114-162d368854b&title=&width=739.0098730782283" alt="image.png"></li>
+</ul>
+</li>
+<li>转义字符串开发中只有特殊场景才会用到，暂时掌握 \’\” \t \n四个的用法即可。</li>
+<li>操作一：字符串拼接，通过+运算符  <img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683444321730-a62a29ef-24bc-4ad2-aa76-d878eb64e92d.png#averageHue=%2371965e&clientId=ub8aa0559-b6f7-4&from=paste&height=117&id=u2b93ce29&originHeight=148&originWidth=713&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=25523&status=done&style=none&taskId=uf5108857-a9ba-4f31-8209-3b3ad97acf6&title=&width=564.7524539172313" alt="image.png"></li>
+<li>操作二：获取字符串长度  <img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683444335192-17e09f58-26dc-45b0-9236-69e45eb49054.png#averageHue=%23757e43&clientId=ub8aa0559-b6f7-4&from=paste&height=56&id=uae8e0f6a&originHeight=71&originWidth=769&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=17557&status=done&style=none&taskId=u1e30a242-2b95-453a-b942-06b2b1be595&title=&width=609.108887885485" alt="image.png"></li>
+</ul>
+<h2 id="Undefined类型"><a href="#Undefined类型" class="headerlink" title="Undefined类型"></a>Undefined类型</h2><ul>
+<li><strong>Undefined 类型只有一个值，就是特殊值 undefined。</strong><ul>
+<li>如果我们声明一个变量，但是没有对其进行初始化时，它默认就是undefined<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683444429946-891eff70-7fc5-4380-95ec-b478fb21ef29.png#averageHue=%23678889&clientId=ub8aa0559-b6f7-4&from=paste&height=93&id=u94c03369&originHeight=117&originWidth=890&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=39648&status=done&style=none&taskId=u533681f2-a550-457a-9ade-4e174885fa3&title=&width=704.9504684240334" alt="image.png"></li>
+</ul>
+</li>
+<li>下面的代码是一样的<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683444444482-f9f71bd2-11a3-4dd8-9780-e5b781be6ea5.png#averageHue=%236f6f61&clientId=ub8aa0559-b6f7-4&from=paste&height=79&id=ufdb15b5b&originHeight=100&originWidth=797&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=14800&status=done&style=none&taskId=u03948ed5-f3fb-4d01-9b77-5e6dc87f7d5&title=&width=631.287104869612" alt="image.png"></li>
+<li>这里有两个注意事项：<ul>
+<li>注意一：最好在变量定义的时候进行初始化，而不只是声明一个变量；</li>
+<li>注意二：不要显示的将一个变量赋值为undefined<ul>
+<li>如果变量刚开始什么都没有，我们可以初始化为0、空字符串、null等值；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Null类型"><a href="#Null类型" class="headerlink" title="Null类型"></a>Null类型</h2><ul>
+<li><strong>Null 类型同样只有一个值，即特殊值 null。</strong><ul>
+<li>null类型通常用来表示一个对象为空，所以通常我们在给一个对象进行初始化时，会赋值为null；<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683444577469-f5022627-1aa2-419f-b601-52630cc879f5.png#averageHue=%2392805c&clientId=ub8aa0559-b6f7-4&from=paste&height=238&id=uaf46b396&originHeight=301&originWidth=921&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=41981&status=done&style=none&taskId=u08f95cd5-f03b-419d-a86c-87f6b556fb1&title=&width=729.504922942174" alt="image.png"></li>
+</ul>
+</li>
+<li>null和undefined的关系<ul>
+<li>undefined通常只有在一个变量声明但是未初始化时，它的默认值是undefined才会用到；</li>
+<li>并且我们不推荐直接给一个变量赋值为undefined，所以很少主动来使用；</li>
+<li>null值非常常用，当一个变量准备保存一个对象，但是这个对象不确定时，我们可以先赋值为null；</li>
+</ul>
+</li>
+</ul>
+<h2 id="字符串String的转换"><a href="#字符串String的转换" class="headerlink" title="字符串String的转换"></a>字符串String的转换</h2><ul>
+<li>其他类型经常需要转换成字符串类型，比如和字符串拼接在一起或者使用字符串中的方法。</li>
+<li><strong>转换方式一：隐式转换</strong><ul>
+<li>一个字符串和另一个字符串进行+操作；<ul>
+<li>如果+运算符左右两边有一个是字符串，那么另一边会自动转换成字符串类型进行拼接；</li>
+</ul>
+</li>
+<li>某些函数的执行也会自动将参数转为字符串类型；<ul>
+<li>比如console.log函数；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>转换方式二：显式转换</strong><ul>
+<li>调用String()函数；</li>
+<li>调用toString()方法（后续面向对象再学习）；</li>
+</ul>
+</li>
+</ul>
+<h2 id="数字类型Number的转换"><a href="#数字类型Number的转换" class="headerlink" title="数字类型Number的转换"></a>数字类型Number的转换</h2><ul>
+<li>其他类型也可能会转成数字类型。</li>
+<li><strong>转换方式一：隐式转换</strong><ul>
+<li>在算数运算中，通常会将其他类型转换成数字类型来进行运算；<ul>
+<li>比如 “6” &#x2F; “2”；</li>
+<li>但是如果是+运算，并且其中一边有字符串，那么还是按照字符串来连接的；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>转换方式二：显式转换</strong><ul>
+<li>我们也可以使用Number()函数来进行显式的转换；</li>
+</ul>
+</li>
+<li>其他类型转换数字的规则：</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683445053212-b902b949-179a-40fa-a6b0-7df81843a2fa.png#averageHue=%23f6dfc6&clientId=ub8aa0559-b6f7-4&from=paste&height=209&id=u54b390fe&originHeight=264&originWidth=1157&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=71080&status=done&style=none&taskId=uf4751c62-00cf-4381-ab07-fa2141d3943&title=&width=916.4356089512435" alt="image.png"></li>
+</ul>
+<h2 id="布尔类型Boolean的转换"><a href="#布尔类型Boolean的转换" class="headerlink" title="布尔类型Boolean的转换"></a>布尔类型Boolean的转换</h2><ul>
+<li>布尔（boolean）类型转换是最简单的。</li>
+<li>它发生在逻辑运算中，但是也可以通过调用** Boolean(value) **显式地进行转换。</li>
+<li>转换规则如下：<ul>
+<li>直观上为“空”的值（如 0、空字符串、null、undefined 和 NaN）将变为 false。</li>
+<li>其他值变成 true。   <img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683445968436-f799beef-779b-4784-9539-87691327f4c0.png#averageHue=%23f8dbb7&clientId=ub8aa0559-b6f7-4&from=paste&height=131&id=u0224af36&originHeight=165&originWidth=1182&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=15353&status=done&style=none&taskId=ub589781a-07ea-4082-bd23-c8b69ce0f8f&title=&width=936.2375884013568" alt="image.png"></li>
+</ul>
+</li>
+<li><strong>注意：包含 0 的字符串 “0” 是 true</strong><ul>
+<li>在 JavaScript 中，非空的字符串总是 true。</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/07/11/JS%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">https://tuanliang.github.io/2024/07/11/JS基础-变量和数据类型/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JS/">JS</a></div><div class="post_share"><div class="social-share" data-image="/image/walk.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/12/JS%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/" title="JS基础-函数"><img class="cover" src="/image/yewan.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JS基础-函数</div></div></a></div><div class="next-post pull-right"><a href="/2024/07/05/CSS%E5%85%83%E7%B4%A0%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/" title="CSS元素的水平垂直居中方案"><img class="cover" src="/image/walk.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CSS元素的水平垂直居中方案</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/25/JS%E5%9F%BA%E7%A1%80-BOM%E6%93%8D%E4%BD%9C/" title="JS基础-BOM操作"><img class="cover" src="/image/fangao.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-25</div><div class="title">JS基础-BOM操作</div></div></a></div><div><a href="/2024/08/19/JS%E5%9F%BA%E7%A1%80-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="JS基础-事件处理"><img class="cover" src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-19</div><div class="title">JS基础-事件处理</div></div></a></div><div><a href="/2024/08/25/JS%E5%9F%BA%E7%A1%80-DOM%E5%AE%9E%E6%88%98/" title="JS基础-DOM实战"><img class="cover" src="/image/bike.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-25</div><div class="title">JS基础-DOM实战</div></div></a></div><div><a href="/2024/08/12/JS%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/" title="JS基础-函数"><img class="cover" src="/image/yewan.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-12</div><div class="title">JS基础-函数</div></div></a></div><div><a href="/2024/08/19/JS%E5%9F%BA%E7%A1%80DOM%E6%93%8D%E4%BD%9C/" title="JS基础DOM操作"><img class="cover" src="/image/fangao.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-19</div><div class="title">JS基础DOM操作</div></div></a></div><div><a href="/2024/08/16/JS%E5%9F%BA%E7%A1%80-%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB/" title="JS基础-常见内置类"><img class="cover" src="/image/zhongguofeng.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-16</div><div class="title">JS基础-常见内置类</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode%E6%8F%92%E4%BB%B6%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">VSCode插件和配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">变量的命名格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">3.</span> <span class="toc-text">变量的命名规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F"><span class="toc-number">4.</span> <span class="toc-text">变量的使用注意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.</span> <span class="toc-text">JavaScript的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#typeof%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">typeof操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Number%E7%B1%BB%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text">Number类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#String%E7%B1%BB%E5%9E%8B"><span class="toc-number">8.</span> <span class="toc-text">String类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Undefined%E7%B1%BB%E5%9E%8B"><span class="toc-number">9.</span> <span class="toc-text">Undefined类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Null%E7%B1%BB%E5%9E%8B"><span class="toc-number">10.</span> <span class="toc-text">Null类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2String%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">11.</span> <span class="toc-text">字符串String的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8BNumber%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">12.</span> <span class="toc-text">数字类型Number的转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8BBoolean%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">13.</span> <span class="toc-text">布尔类型Boolean的转换</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img src="/image/fangao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性3"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3">ES6~ES13新特性3</a><time datetime="2024-08-30T07:49:34.000Z" title="发表于 2024-08-30 15:49:34">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img src="/image/bike.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性2"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2">ES6~ES13新特性2</a><time datetime="2024-08-30T07:49:21.000Z" title="发表于 2024-08-30 15:49:21">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES13新特性1"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1">JS高级-ES13新特性1</a><time datetime="2024-08-28T02:43:57.000Z" title="发表于 2024-08-28 10:43:57">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img src="/image/zhongguofeng.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES6实现继承"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承">JS高级-ES6实现继承</a><time datetime="2024-08-28T02:43:16.000Z" title="发表于 2024-08-28 10:43:16">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img src="/image/yewanshu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES5中实现继承"/></a><div class="content"><a class="title" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承">JS高级-ES5中实现继承</a><time datetime="2024-08-27T13:02:38.000Z" title="发表于 2024-08-27 21:02:38">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/walk.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>

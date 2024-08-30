@@ -1,0 +1,465 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CSS_Flex布局 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS_Flex布局">
+<meta property="og:url" content="https://tuanliang.github.io/2024/06/20/CSS-Flex%E5%B8%83%E5%B1%80/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="CSS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/zhongguofeng.jpg">
+<meta property="article:published_time" content="2024-06-20T07:01:28.000Z">
+<meta property="article:modified_time" content="2024-06-25T03:16:41.839Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/zhongguofeng.jpg"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/06/20/CSS-Flex%E5%B8%83%E5%B1%80/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CSS_Flex布局',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-25 11:16:41'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/zhongguofeng.jpg')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">CSS_Flex布局</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-20T07:01:28.000Z" title="发表于 2024-06-20 15:01:28">2024-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-25T03:16:41.839Z" title="更新于 2024-06-25 11:16:41">2024-06-25</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CSS/">CSS</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CSS_Flex布局"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="认识flexbox"><a href="#认识flexbox" class="headerlink" title="认识flexbox"></a>认识flexbox</h2><ul>
+<li>Flexbox翻译为弹性盒子:<ul>
+<li>弹性盒子是一种用于按行或按列布局元素的一维布局方法 ;</li>
+<li>元素可以膨胀以填充额外的空间, 收缩以适应更小的空间;</li>
+<li>通常我们使用Flexbox来进行布局的方案称之为flex布局(flex layout);</li>
+</ul>
+</li>
+<li><strong>flex布局是目前web开发中使用最多的布局方案</strong>：<ul>
+<li>flex 布局（Flexible 布局，弹性布局）;</li>
+<li>目前特别在移动端可以说已经完全普及;</li>
+<li>在PC端也几乎已经完全普及和使用, 只有非常少数的网站依然在用浮动来布局;</li>
+</ul>
+</li>
+<li>为什么需要flex布局呢?<ul>
+<li>长久以来，CSS 布局中唯一可靠且跨浏览器兼容的布局工具只有 floats 和 positioning。</li>
+<li>但是这两种方法本身存在很大的局限性, 并且他们用于布局实在是无奈之举;</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex布局的重要概念"><a href="#flex布局的重要概念" class="headerlink" title="flex布局的重要概念"></a>flex布局的重要概念</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682432726140-a6d0596f-4a40-4e40-9e6b-06864620d38c.png#averageHue=%23ef9830&clientId=uc30ff908-d264-4&from=paste&height=191&id=u110df350&originHeight=346&originWidth=481&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=41654&status=done&style=none&taskId=u7c23549c-a92b-421e-9b1e-810d90baddc&title=&width=265.9900817871094" alt="image.png"></p>
+<ul>
+<li>两个重要的概念：<ul>
+<li>开启了 flex 布局的元素叫 flex container</li>
+<li>flex container 里面的直接子元素叫做 flex item</li>
+</ul>
+</li>
+<li>**当flex container中的子元素变成了flex item时, 具备一下特点: **<ul>
+<li>flex item的布局将<strong>受flex container属性的设置来进行控制和布局</strong>;</li>
+<li>flex item不再严格区分块级元素和行内级元素;</li>
+<li>flex item默认情况下是包裹内容的, 但是可以设置宽度和高度;</li>
+</ul>
+</li>
+<li>设置 display 属性为 flex 或者 inline-flex 可以成为 flex container<ul>
+<li>flex： flex container 以 block-level 形式存在</li>
+<li>inline-flex： flex container 以 inline-level 形式存在</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex布局的模型"><a href="#flex布局的模型" class="headerlink" title="flex布局的模型"></a>flex布局的模型</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682432845690-1340dc28-e6eb-445d-a320-12471d26426b.png#averageHue=%23f0eded&clientId=uc30ff908-d264-4&from=paste&height=490&id=u10b32588&originHeight=618&originWidth=1470&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=120028&status=done&style=none&taskId=u1d7c41bb-0599-45ed-b0c0-40908ece9df&title=&width=1164.356391666662" alt="image.png"></p>
+<h2 id="flex相关的属性"><a href="#flex相关的属性" class="headerlink" title="flex相关的属性"></a>flex相关的属性</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682432866164-104e58c1-670d-47aa-8c81-6dec776f9f03.png#averageHue=%23fbfafa&clientId=uc30ff908-d264-4&from=paste&height=379&id=u212d066e&originHeight=479&originWidth=1294&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=67361&status=done&style=none&taskId=uf9bdcb6c-737d-4877-892c-0253ab3cb77&title=&width=1024.9504563378644" alt="image.png"></p>
+<h2 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h2><ul>
+<li>flex items 默认都是沿着 main axis（主轴）从 main start 开始往 main end 方向排布<ul>
+<li>flex-direction 决定了 main axis 的方向，有 4 个取值</li>
+<li>row（默认值）、row-reverse、column、column-reverse</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682432914333-70d62ff0-f15d-47cd-9ef6-9be00bc78bd0.png#averageHue=%23f9efec&clientId=uc30ff908-d264-4&from=paste&height=410&id=u70a90123&originHeight=517&originWidth=1217&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=75411&status=done&style=none&taskId=u198ecfad-e12d-4e89-a8e5-15e2ce2b88d&title=&width=963.9603596315154" alt="image.png"></li>
+</ul>
+<h2 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h2><ul>
+<li>flex-wrap 决定了 flex container 是单行还是多行<ul>
+<li>nowrap（默认）：单行</li>
+<li>wrap：多行</li>
+<li>wrap-reverse：多行（对比 wrap，cross start 与 cross end 相反）</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682432965577-3f572c83-0204-4a90-bc5d-e46c16692964.png#averageHue=%23cfa8ab&clientId=uc30ff908-d264-4&from=paste&height=174&id=uaeb8c038&originHeight=322&originWidth=1037&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=71326&status=done&style=none&taskId=ue9fa76b1-f645-4656-addf-0c920ca853a&title=&width=560.4108276367188" alt="image.png"></li>
+</ul>
+<h2 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h2><ul>
+<li>flex-flow 属性是 flex-direction 和 flex-wrap 的简写</li>
+<li>顺序任何, 并且都可以省略;</li>
+</ul>
+<h2 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h2><ul>
+<li><strong>justify-content 决定了 flex items 在 main axis 上的对齐方式</strong><ul>
+<li>flex-start（默认值）：与 main start 对齐</li>
+<li>flex-end：与 main end 对齐</li>
+<li>center：居中对齐</li>
+<li>space-between：<ul>
+<li>✓ flex items 之间的距离相等</li>
+<li>✓ 与 main start、main end两端对齐</li>
+</ul>
+</li>
+<li>space-around：<ul>
+<li>✓ flex items 之间的距离相等</li>
+<li>✓ flex items 与 main start、main end 之间的距离是 flex items 之间距离的一半</li>
+</ul>
+</li>
+<li>space-evenly：<ul>
+<li>✓ flex items 之间的距离相等</li>
+<li>✓ flex items 与 main start、main end 之间的距离 等于 flex items 之间的距离</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682433105256-e46a5b88-87c1-4df1-b40e-e248f64e4e60.png#averageHue=%23323231&clientId=uc30ff908-d264-4&from=paste&height=322&id=ua3324e74&originHeight=706&originWidth=456&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=103105&status=done&style=none&taskId=ua5b7f972-d658-4369-8525-4c374c1d905&title=&width=208.163330078125" alt="image.png"></li>
+</ul>
+<h2 id="align-item"><a href="#align-item" class="headerlink" title="align-item"></a>align-item</h2><ul>
+<li><strong>align-items 决定了 flex items 在 cross axis 上的对齐方式</strong><ul>
+<li>normal：在弹性布局中，效果和stretch一样</li>
+<li>stretch：当 flex items 在 cross axis 方向的 size 为 auto 时，会 自动拉伸至填充 flex container</li>
+<li>flex-start：与 cross start 对齐</li>
+<li>flex-end：与 cross end 对齐</li>
+<li>center：居中对齐</li>
+<li>baseline：与基准线对齐</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682433182985-cdfdd7ac-b63c-4531-aa1b-4e10cecab4a2.png#averageHue=%2330302f&clientId=uc30ff908-d264-4&from=paste&height=296&id=ub345ffb2&originHeight=699&originWidth=589&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=143081&status=done&style=none&taskId=u43f2917a-4ede-4b39-bedd-b15f575d38c&title=&width=249.52720642089844" alt="image.png"></p>
+<h2 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h2><ul>
+<li><strong>align-content 决定了多行 flex items 在 cross axis 上的对齐方式，用法与 justify-content 类似</strong><ul>
+<li>stretch（默认值）：与 align-items 的 stretch 类似</li>
+<li>flex-start：与 cross start 对齐</li>
+<li>flex-end：与 cross end 对齐</li>
+<li>center：居中对齐</li>
+<li>space-between：<ul>
+<li>✓ flex items 之间的距离相等</li>
+<li>✓ 与 cross start、cross end两端对齐</li>
+</ul>
+</li>
+<li>space-around：<ul>
+<li>✓ flex items 之间的距离相等</li>
+<li>✓ flex items 与 cross start、cross end 之间的距离是 flex items 之间距离的一半</li>
+</ul>
+</li>
+<li>space-evenly：<ul>
+<li>✓ flex items 之间的距离相等</li>
+<li>✓ flex items 与 cross start、cross end 之间的距离 等于 flex items 之间的距离</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682433262908-8d3dcc46-5f97-4484-bfe9-6d0f1710a44e.png#averageHue=%23c9a1a5&clientId=uc30ff908-d264-4&from=paste&height=422&id=u40d2d62d&originHeight=657&originWidth=542&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=159955&status=done&style=none&taskId=ub2569256-dd38-4a1c-8d50-4c0192f77ac&title=&width=348.2821350097656" alt="image.png"></li>
+</ul>
+<h2 id="flex-item属性-order"><a href="#flex-item属性-order" class="headerlink" title="flex-item属性 - order"></a>flex-item属性 - order</h2><ul>
+<li>order 决定了 flex items 的排布顺序<ul>
+<li>可以设置任意整数（正整数、负整数、0），值越小就越排在前面</li>
+<li>默认值是 0</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682433326449-bfcbbd35-0717-454a-a841-a67563d42a59.png#averageHue=%23ef962c&clientId=uc30ff908-d264-4&from=paste&height=268&id=u37923369&originHeight=511&originWidth=824&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=82352&status=done&style=none&taskId=u3e4ca3da-201a-4c7e-bbd7-4a5df116382&title=&width=431.6484375" alt="image.png"></li>
+</ul>
+<h2 id="flex-item属性-flex-items"><a href="#flex-item属性-flex-items" class="headerlink" title="flex-item属性 - flex items"></a>flex-item属性 - flex items</h2><ul>
+<li>flex items 可以通过 align-self 覆盖 flex container 设置的 align-items<ul>
+<li>auto（默认值）：遵从 flex container 的 align-items 设置</li>
+<li>stretch、flex-start、flex-end、center、baseline，效果跟 align-items 一致</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682433387229-cadb1036-29d4-4624-a23c-100eefea1f77.png#averageHue=%23ca9ca3&clientId=uc30ff908-d264-4&from=paste&height=202&id=ufe045ca7&originHeight=499&originWidth=1024&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=75799&status=done&style=none&taskId=u138f2e56-b03a-498d-912c-8162a037da9&title=&width=414.41082763671875" alt="image.png"></li>
+</ul>
+<h2 id="flex-item属性-flex-grow"><a href="#flex-item属性-flex-grow" class="headerlink" title="flex-item属性 - flex-grow"></a>flex-item属性 - flex-grow</h2><ul>
+<li>** flex-grow 决定了 flex items 如何扩展(拉伸&#x2F;成长) **<ul>
+<li>可以设置<strong>任意非负数字</strong>（正小数、正整数、0），默认值是 0</li>
+<li>当 flex container 在 main axis 方向上有剩余 size 时，flex-grow 属性才会有效</li>
+</ul>
+</li>
+<li>如果所有 flex items 的 flex-grow 总和 sum 超过 1，每个 flex item 扩展的 size 为<ul>
+<li>flex container 的剩余 size * flex-grow &#x2F; sum</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682433472350-46d77fc1-39bd-4fcf-95ed-58ab0fb5205a.png#averageHue=%23f1962b&clientId=uc30ff908-d264-4&from=paste&height=150&id=u761f7d62&originHeight=294&originWidth=927&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=55548&status=done&style=none&taskId=u9a8bac25-daf6-4b63-9b4c-a9c677d6894&title=&width=471.41082763671875" alt="image.png"></li>
+</ul>
+</li>
+<li>flex items 扩展后的最终 size 不能超过 max-width\max-height</li>
+</ul>
+<h2 id="flex-item属性-flex-shrink"><a href="#flex-item属性-flex-shrink" class="headerlink" title="flex-item属性 - flex-shrink"></a>flex-item属性 - flex-shrink</h2><ul>
+<li><strong>flex-shrink 决定了 flex items 如何收缩(缩小)</strong><ul>
+<li>可以设置任意非负数字（正小数、正整数、0），默认值是 1</li>
+<li>当 flex items 在 main axis 方向上超过了 flex container 的 size，flex-shrink 属性才会有效</li>
+</ul>
+</li>
+<li>如果所有 flex items 的 flex-shrink 总和超过 1，每个 flex item 收缩的 size为<ul>
+<li>flex items 超出 flex container 的 size * 收缩比例 &#x2F; 所有 flex items 的收缩比例之和</li>
+<li>flex items 收缩后的最终 size 不能小于 min-width\min-height</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex-item属性-flex-basis"><a href="#flex-item属性-flex-basis" class="headerlink" title="flex-item属性 - flex-basis"></a>flex-item属性 - flex-basis</h2><ul>
+<li>**flex-basis 用来设置 flex items 在 main axis 方向上的 base size **<ul>
+<li>auto（默认值）、具体的宽度数值（100px）</li>
+</ul>
+</li>
+<li>决定 flex items 最终 base size 的因素，从优先级高到低<ul>
+<li>max-width\max-height\min-width\min-height</li>
+<li>flex-basis</li>
+<li>width\height</li>
+<li>内容本身的 size</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex-item属性-flex属性"><a href="#flex-item属性-flex属性" class="headerlink" title="flex-item属性 - flex属性"></a>flex-item属性 - flex属性</h2><ul>
+<li><strong>flex 是 flex-grow || flex-shrink || flex-basis 的简写,flex 属性可以指定1个，2个或3个值。</strong></li>
+<li>单值语法: 值必须为以下其中之一:<ul>
+<li>一个无单位数(<number>): 它会被当作<flex-grow>的值。</li>
+<li>一个有效的宽度(width)值: 它会被当作<flex-basis>的值。</li>
+<li>关键字none，auto或initial.</li>
+</ul>
+</li>
+<li>双值语法: 第一个值必须为一个无单位数，并且它会被当作<flex-grow>的值。<ul>
+<li>第二个值必须为以下之一：<ul>
+<li>✓ 一个无单位数：它会被当作<flex-shrink>的值。</li>
+<li>✓ 一个有效的宽度值: 它会被当作<flex-basis>的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>三值语法:<ul>
+<li>第一个值必须为一个无单位数，并且它会被当作<flex-grow>的值。</li>
+<li>第二个值必须为一个无单位数，并且它会被当作<flex-shrink>的值。</li>
+<li>第三个值必须为一个有效的宽度值， 并且它会被当作<flex-basis>的值。</li>
+</ul>
+</li>
+</ul>
+<h2 id="思考-如下布局如何解决对其问题"><a href="#思考-如下布局如何解决对其问题" class="headerlink" title="思考: 如下布局如何解决对其问题"></a>思考: 如下布局如何解决对其问题</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682471376417-99d7e787-3538-469d-b249-e6be5ddd1049.png#averageHue=%2370ae52&clientId=uf339a2ea-9703-4&from=paste&height=264&id=u88f3964e&originHeight=333&originWidth=870&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=4248&status=done&style=none&taskId=u0684e470-033e-4ede-a100-f5eadfe65ca&title=&width=689.1088848639428" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1682471333702-45a47d80-fab1-4613-9317-f835f6e40cd4.png#averageHue=%23c6b22a&clientId=uf339a2ea-9703-4&from=paste&height=227&id=u08f0709e&originHeight=287&originWidth=880&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=3986&status=done&style=none&taskId=ud85e13e1-8fe1-422f-a21f-15632e98336&title=&width=697.0296766439881" alt="image.png"><br>方法一：如果页面布局不改变，可以自己计算<br>方法二：在最后添加<i>标签，添加的个数为item个数减2</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.container</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">      <span class="comment">/* 控制flex布局主轴的方向 */</span></span></span><br><span class="line"><span class="language-css">      <span class="comment">/* flex-direction: column-reverse; */</span></span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="comment">/* 设置单行还是多行展示 */</span></span></span><br><span class="line"><span class="language-css">      <span class="comment">/* flex-wrap: wrap-reverse; */</span></span></span><br><span class="line"><span class="language-css">      <span class="comment">/* flex-flow: row-reverse; */</span></span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex-wrap</span>: wrap;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="attribute">justify-content</span>: space-between;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">600px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background-color</span>: orange;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">90px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.container</span> <span class="selector-tag">i</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">width</span>: <span class="number">90px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;item item2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/itemRandomColor.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/06/20/CSS-Flex%E5%B8%83%E5%B1%80/">https://tuanliang.github.io/2024/06/20/CSS-Flex布局/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CSS/">CSS</a></div><div class="post_share"><div class="social-share" data-image="/image/zhongguofeng.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/25/%E8%BD%AF%E8%80%83%E9%AB%98%E7%BA%A7%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E5%B8%88%E9%80%9A%E8%BF%87/" title="软考高级系统架构师通过"><img class="cover" src="/image/spring.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">软考高级系统架构师通过</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/17/CSS%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/" title="CSS元素定位"><img class="cover" src="/image/yewan.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CSS元素定位</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/06/16/CSS-html%E9%AB%98%E7%BA%A7%E5%85%83%E7%B4%A0/" title="CSS_html高级元素"><img class="cover" src="/image/yewanshu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-16</div><div class="title">CSS_html高级元素</div></div></a></div><div><a href="/2024/07/05/CSS%E5%85%83%E7%B4%A0%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E6%96%B9%E6%A1%88/" title="CSS元素的水平垂直居中方案"><img class="cover" src="/image/walk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-05</div><div class="title">CSS元素的水平垂直居中方案</div></div></a></div><div><a href="/2024/06/17/CSS%E5%85%83%E7%B4%A0%E5%AE%9A%E4%BD%8D/" title="CSS元素定位"><img class="cover" src="/image/yewan.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-17</div><div class="title">CSS元素定位</div></div></a></div><div><a href="/2024/05/23/CSS%E5%B1%9E%E6%80%A7-%E5%AD%97%E4%BD%93/" title="CSS属性-字体"><img class="cover" src="/image/yewanshu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-23</div><div class="title">CSS属性-字体</div></div></a></div><div><a href="/2024/05/19/CSS%E5%B1%9E%E6%80%A7-%E6%96%87%E6%9C%AC/" title="CSS属性-文本"><img class="cover" src="/image/yewan.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-19</div><div class="title">CSS属性-文本</div></div></a></div><div><a href="/2024/05/29/CSS%E7%BB%A7%E6%89%BF%E3%80%81%E5%B1%82%E5%8F%A0%E3%80%81%E5%85%83%E7%B4%A0%E7%B1%BB%E5%9E%8B/" title="CSS继承、层叠、元素类型"><img class="cover" src="/image/tianyuan.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-29</div><div class="title">CSS继承、层叠、元素类型</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86flexbox"><span class="toc-number">1.</span> <span class="toc-text">认识flexbox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80%E7%9A%84%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">flex布局的重要概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">flex布局的模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E7%9B%B8%E5%85%B3%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">4.</span> <span class="toc-text">flex相关的属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-direction"><span class="toc-number">5.</span> <span class="toc-text">flex-direction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-wrap"><span class="toc-number">6.</span> <span class="toc-text">flex-wrap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-flow"><span class="toc-number">7.</span> <span class="toc-text">flex-flow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#justify-content"><span class="toc-number">8.</span> <span class="toc-text">justify-content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#align-item"><span class="toc-number">9.</span> <span class="toc-text">align-item</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#align-content"><span class="toc-number">10.</span> <span class="toc-text">align-content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-item%E5%B1%9E%E6%80%A7-order"><span class="toc-number">11.</span> <span class="toc-text">flex-item属性 - order</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-item%E5%B1%9E%E6%80%A7-flex-items"><span class="toc-number">12.</span> <span class="toc-text">flex-item属性 - flex items</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-item%E5%B1%9E%E6%80%A7-flex-grow"><span class="toc-number">13.</span> <span class="toc-text">flex-item属性 - flex-grow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-item%E5%B1%9E%E6%80%A7-flex-shrink"><span class="toc-number">14.</span> <span class="toc-text">flex-item属性 - flex-shrink</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-item%E5%B1%9E%E6%80%A7-flex-basis"><span class="toc-number">15.</span> <span class="toc-text">flex-item属性 - flex-basis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex-item%E5%B1%9E%E6%80%A7-flex%E5%B1%9E%E6%80%A7"><span class="toc-number">16.</span> <span class="toc-text">flex-item属性 - flex属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83-%E5%A6%82%E4%B8%8B%E5%B8%83%E5%B1%80%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%AF%B9%E5%85%B6%E9%97%AE%E9%A2%98"><span class="toc-number">17.</span> <span class="toc-text">思考: 如下布局如何解决对其问题</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img src="/image/fangao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性3"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3">ES6~ES13新特性3</a><time datetime="2024-08-30T07:49:34.000Z" title="发表于 2024-08-30 15:49:34">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img src="/image/bike.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性2"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2">ES6~ES13新特性2</a><time datetime="2024-08-30T07:49:21.000Z" title="发表于 2024-08-30 15:49:21">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES13新特性1"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1">JS高级-ES13新特性1</a><time datetime="2024-08-28T02:43:57.000Z" title="发表于 2024-08-28 10:43:57">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img src="/image/zhongguofeng.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES6实现继承"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承">JS高级-ES6实现继承</a><time datetime="2024-08-28T02:43:16.000Z" title="发表于 2024-08-28 10:43:16">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img src="/image/yewanshu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES5中实现继承"/></a><div class="content"><a class="title" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承">JS高级-ES5中实现继承</a><time datetime="2024-08-27T13:02:38.000Z" title="发表于 2024-08-27 21:02:38">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/zhongguofeng.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>

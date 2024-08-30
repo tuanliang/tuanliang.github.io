@@ -1,0 +1,401 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JS高级-ES13新特性1 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS高级-ES13新特性1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS高级-ES13新特性1">
+<meta property="og:url" content="https://tuanliang.github.io/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="JS高级-ES13新特性1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/45663c9f2ce54eb2ae8628efb0c43390.jpg">
+<meta property="article:published_time" content="2024-08-28T02:43:57.000Z">
+<meta property="article:modified_time" content="2024-08-28T02:45:32.474Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="JS高级">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/45663c9f2ce54eb2ae8628efb0c43390.jpg"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JS高级-ES13新特性1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-28 10:45:32'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/45663c9f2ce54eb2ae8628efb0c43390.jpg')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">JS高级-ES13新特性1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-28T02:43:57.000Z" title="发表于 2024-08-28 10:43:57">2024-08-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-28T02:45:32.474Z" title="更新于 2024-08-28 10:45:32">2024-08-28</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JS高级-ES13新特性1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="let-const基本使用"><a href="#let-const基本使用" class="headerlink" title="let&#x2F;const基本使用"></a><strong>let&#x2F;const基本使用</strong></h3><ul>
+<li>let关键字：<ul>
+<li>从直观的角度来说，let和var是没有太大的区别的，都是用于声明一个变量；</li>
+</ul>
+</li>
+<li>const关键字：<ul>
+<li>const关键字是constant的单词的缩写，表示常量、衡量的意思</li>
+<li>它表示保存的数据一旦被赋值，就不能被修改；</li>
+<li>但是<strong>如果赋值的是引用类型，那么可以通过引用找到对应的对象，修改对象</strong>的内容；</li>
+</ul>
+</li>
+<li>注意：<ul>
+<li>另外let、const不允许重复声明变量；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6开始</span></span><br><span class="line">    <span class="comment">// 1.let</span></span><br><span class="line">    <span class="keyword">let</span> message2 = <span class="string">&quot;你好, 世界&quot;</span></span><br><span class="line">    message2 = <span class="string">&quot;你好, why&quot;</span></span><br><span class="line">    message2 = <span class="number">123</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(message2)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.const</span></span><br><span class="line">    <span class="comment">// const message3 = &quot;nihao, shijie&quot;</span></span><br><span class="line">    <span class="comment">// message3 = &quot;nihao, why&quot; //报错</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 赋值引用类型</span></span><br><span class="line">    <span class="keyword">const</span> info = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// info = &#123;&#125; // 报错</span></span><br><span class="line">    info.<span class="property">name</span> = <span class="string">&quot;kobe&quot;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(info)</span><br></pre></td></tr></table></figure>
+
+<h3 id="let-const的块级作用域"><a href="#let-const的块级作用域" class="headerlink" title="let&#x2F;const的块级作用域"></a>let&#x2F;const的块级作用域</h3><ul>
+<li>在ES6中新增了块级作用域，并且通过let、const、function、class声明的标识符是具备块级作用域的限制的：<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684918582395-6e143670-d049-4d27-92f2-b3ffd577bcde.png#averageHue=%23292d36&clientId=u048d03ca-1ce9-4&from=paste&height=239&id=udd4bccea&originHeight=392&originWidth=894&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=137017&status=done&style=none&taskId=u5bfbda5e-7fcf-4a0c-aea2-c7f1817be1e&title=&width=545.1187744140625" alt="image.png"></li>
+<li>但是我们会发现函数拥有块级作用域，但是外面依然是可以访问的：<ul>
+<li>这是因为引擎会对函数的声明进行特殊的处理，允许像var那样进行提升；</li>
+</ul>
+</li>
+</ul>
+<h3 id="块级作用域的应用"><a href="#块级作用域的应用" class="headerlink" title="块级作用域的应用"></a>块级作用域的应用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听按钮的点击</span></span><br><span class="line">    <span class="keyword">const</span> btnEls = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;button&quot;</span>)</span><br><span class="line">    <span class="comment">// [btn1, btn2, btn3, btn4]</span></span><br><span class="line">    <span class="comment">// for (var i = 0; i &lt; btnEls.length; i++) &#123;</span></span><br><span class="line">    <span class="comment">//   var btnEl = btnEls[i];</span></span><br><span class="line">    <span class="comment">//   // btnEl.index = i</span></span><br><span class="line">    <span class="comment">//   (function(m) &#123;</span></span><br><span class="line">    <span class="comment">//     btnEl.onclick = function() &#123;</span></span><br><span class="line">    <span class="comment">//       debugger</span></span><br><span class="line">    <span class="comment">//       console.log(`点击了$&#123;m&#125;按钮`)</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">//   &#125;)(i)</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; btnEls.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> btnEl = btnEls[i];</span><br><span class="line">      btnEl.<span class="property">onclick</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`点击了<span class="subst">$&#123;i&#125;</span>按钮`</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对于let、const：<ul>
+<li>对于let和const来说，是目前开发中推荐使用的；</li>
+<li>我们会优先推荐使用const，这样可以保证数据的安全性不会被随意的篡改；</li>
+<li>只有当我们明确知道一个变量后续会需要被重新赋值时，这个时候再使用let；</li>
+<li>这种在很多其他语言里面也都是一种约定俗成的规范，尽量我们也遵守这种规范；</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串模板基本使用"><a href="#字符串模板基本使用" class="headerlink" title="字符串模板基本使用"></a>字符串模板基本使用</h3><ul>
+<li><p>在ES6之前，如果我们想要将字符串和一些动态的变量（标识符）拼接到一起，是非常麻烦和丑陋的</p>
+</li>
+<li><p>ES6允许我们使用字符串模板来嵌入JS的变量或者表达式来进行拼接：</p>
+<ul>
+<li>首先，我们会使用** &#96;&#96; <strong>符号来编写字符串，称之为</strong>模板字符串**；<ul>
+<li>其次，在模板字符串中，我们可以通过 **${expression} **来嵌入动态的内容；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>模板字符串还有另外一种用法：<strong>标签模板字符串</strong></p>
+</li>
+<li><p>如果我们使用标签模板字符串，并且在调用的时候插入其他的变量：</p>
+<ul>
+<li>模板字符串被拆分了</li>
+<li>第一个元素是数组，是被模块字符串拆分的字符串组合；</li>
+<li>后面的元素是一个个模块字符串传入的内容；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&quot;why&quot;</span></span><br><span class="line"> <span class="keyword">const</span> age = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 1.基本用法</span></span><br><span class="line"> <span class="keyword">const</span> info = <span class="string">`my name is <span class="subst">$&#123;name&#125;</span>, age is <span class="subst">$&#123;age&#125;</span>`</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(info)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 2.标签模板字符串的用法</span></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;参数:&quot;</span>, args)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// foo(&quot;why&quot;, 18, 1.88)</span></span><br><span class="line"> foo<span class="string">`my name is <span class="subst">$&#123;name&#125;</span>, age is <span class="subst">$&#123;age&#125;</span>, height is <span class="subst">$&#123;<span class="number">1.88</span>&#125;</span>`</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684918931347-3d0e3d51-991d-4c01-a188-c0cee7df2f8b.png#averageHue=%23fdfdfc&clientId=u048d03ca-1ce9-4&from=paste&height=147&id=u6966a381&originHeight=186&originWidth=739&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=12985&status=done&style=none&taskId=u2fc9919e-3d4d-49b7-8d72-ac8934f0ace&title=&width=585.3465125453491" alt="image.png"></p>
+<h3 id="函数默认参数用法"><a href="#函数默认参数用法" class="headerlink" title="函数默认参数用法"></a>函数默认参数用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意: 默认参数是不会对null进行处理的</span></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span> (arg1 = <span class="string">&quot;我是默认值&quot;</span>, arg2 = <span class="string">&quot;我也是默认值&quot;</span>) &#123;</span><br><span class="line">   <span class="comment">// 1.两种写法不严谨</span></span><br><span class="line">   <span class="comment">// 默认值写法一:</span></span><br><span class="line">   <span class="comment">// arg1 = arg1 ? arg1: &quot;我是默认值&quot;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 默认值写法二:</span></span><br><span class="line">   <span class="comment">// arg1 = arg1 || &quot;我是默认值&quot;</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 2.严谨的写法</span></span><br><span class="line">   <span class="comment">// 三元运算符</span></span><br><span class="line">   <span class="comment">// arg1 = (arg1 === undefined || arg1 === null) ? &quot;我是默认值&quot;: arg1</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// ES6之后新增语法: ??</span></span><br><span class="line">   arg1 = arg1 ?? <span class="string">&quot;我是默认值&quot;</span> <span class="comment">// 如果没有这句代码，args传入null，还是会打印null，有之后打印“我是默认值”</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 3.简便的写法: 默认参数</span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(arg1)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">foo</span>(<span class="number">123</span>, <span class="number">321</span>) <span class="comment">//123</span></span><br><span class="line"> <span class="title function_">foo</span>()<span class="comment">//我是默认值</span></span><br><span class="line"> <span class="title function_">foo</span>(<span class="number">0</span>)<span class="comment">//0</span></span><br><span class="line"> <span class="title function_">foo</span>(<span class="string">&quot;&quot;</span>)<span class="comment">//</span></span><br><span class="line"> <span class="title function_">foo</span>(<span class="literal">false</span>)<span class="comment">//false</span></span><br><span class="line"> <span class="title function_">foo</span>(<span class="literal">null</span>)<span class="comment">//我是默认值</span></span><br><span class="line"> <span class="title function_">foo</span>(<span class="literal">undefined</span>)<span class="comment">//我是默认值</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684919358315-5714c4d0-8c5c-4347-b629-a599fe6012da.png#averageHue=%23f7f7f7&clientId=u048d03ca-1ce9-4&from=paste&height=129&id=u5b784ced&originHeight=163&originWidth=170&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=2685&status=done&style=none&taskId=uea0ef827-bbe0-473d-844c-c1dd38e3078&title=&width=134.65346026077043" alt="image.png"></p>
+<h3 id="函数默认参数注意"><a href="#函数默认参数注意" class="headerlink" title="函数默认参数注意"></a>函数默认参数注意</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.注意一: 有默认参数的形参尽量写到后面</span></span><br><span class="line"> <span class="comment">// 2.有默认参数的形参, 是不会计算在length之内(并且后面所有的参数都不会计算在length之内)</span></span><br><span class="line"> <span class="comment">// 3.剩余参数也是放到后面(默认参数放到剩余参数的前面)</span></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">age, name = <span class="string">&quot;why&quot;</span>, ...args</span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(name, age, args)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">foo</span>(<span class="number">18</span>, <span class="string">&quot;abc&quot;</span>, <span class="string">&quot;cba&quot;</span>, <span class="string">&quot;nba&quot;</span>)<span class="comment">//</span></span><br><span class="line"></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="property">length</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684919496969-4319c247-ea13-4f1c-aed9-b0935b2f5b7c.png#averageHue=%23fdfcfc&clientId=u048d03ca-1ce9-4&from=paste&height=45&id=u306f4055&originHeight=57&originWidth=245&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=1977&status=done&style=none&taskId=u71d5eecd-888b-4746-8ed5-2a6a256a127&title=&width=194.0593986111103" alt="image.png"></p>
+<h3 id="函数默认参数解构"><a href="#函数默认参数解构" class="headerlink" title="函数默认参数解构"></a>函数默认参数解构</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.函数的默认值是一个对象</span></span><br><span class="line"> <span class="comment">// function foo(obj = &#123; name: &quot;why&quot;, age: 18 &#125;) &#123;</span></span><br><span class="line"> <span class="comment">//   console.log(obj.name, obj.age)</span></span><br><span class="line"> <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span> (&#123; name, age &#125; = &#123; <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(name, age)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span> (&#123; name = <span class="string">&quot;why&quot;</span>, age = <span class="number">18</span> &#125; = &#123;&#125;) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(name, age)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">foo</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数的剩余参数"><a href="#函数的剩余参数" class="headerlink" title="函数的剩余参数"></a>函数的剩余参数</h3><ul>
+<li>ES6中引用了rest parameter，可以将不定数量的参数放入到一个数组中：<ul>
+<li>如果最后一个参数是 … 为前缀的，那么它会将剩余的参数放到该参数中，并且作为一个数组；</li>
+</ul>
+</li>
+<li>那么剩余参数和arguments有什么区别呢？<ul>
+<li>剩余参数只包含那些没有对应形参的实参，而 arguments 对象包含了传给函数的所有实参；</li>
+<li>arguments对象不是一个真正的数组，而rest参数是一个真正的数组，可以进行数组的所有操作；</li>
+<li>arguments是早期的ECMAScript中为了方便去获取所有的参数提供的一个数据结构，而rest参数是ES6中提供并且希望以此 来替代arguments的；</li>
+</ul>
+</li>
+<li>注意：剩余参数必须放到最后一个位置，否则会报错。</li>
+</ul>
+<h3 id="函数箭头函数的补充"><a href="#函数箭头函数的补充" class="headerlink" title="函数箭头函数的补充"></a>函数箭头函数的补充</h3><ul>
+<li>在前面我们已经学习了箭头函数的用法，这里进行一些补充：<ul>
+<li>箭头函数是没有显式原型prototype的，所以不能作为构造函数，使用new来创建对象；</li>
+<li>箭头函数也不绑定this、arguments、super参数；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.function定义的函数是有两个原型的:</span></span><br><span class="line">   <span class="keyword">function</span> <span class="title function_">foo</span> () &#123; &#125;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">// new foo() -&gt; f.__proto__ = foo.prototype</span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(foo.<span class="property">__proto__</span>) <span class="comment">// -&gt; Function.prototype</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 2.箭头函数是没有显式原型</span></span><br><span class="line">   <span class="comment">// 在ES6之后, 定义一个类要使用class定义</span></span><br><span class="line">   <span class="keyword">var</span> <span class="title function_">bar</span> = (<span class="params"></span>) =&gt; &#123; &#125;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(bar.<span class="property">__proto__</span> === <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">// true</span></span><br><span class="line">   <span class="comment">// 没有显式原型 </span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(bar.<span class="property"><span class="keyword">prototype</span></span>) <span class="comment">//undefined</span></span><br><span class="line">   <span class="comment">// var b = new bar() // 没有显示原型，所以用new bar()会报错</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="展开语法"><a href="#展开语法" class="headerlink" title="展开语法"></a>展开语法</h3><ul>
+<li>展开语法<ul>
+<li>可以在函数调用&#x2F;数组构造时，将数组表达式或者string在语法层面展开；</li>
+<li>还可以在构造字面量对象时, 将对象表达式按key-value的方式展开；</li>
+</ul>
+</li>
+<li>展开语法的场景：<ul>
+<li>在函数调用时使用；</li>
+<li>在数组构造时使用；</li>
+<li>在构建对象字面量时，也可以使用展开运算符，这个是在ES2018（ES9）中添加的新特性；</li>
+</ul>
+</li>
+<li>注意：展开运算符其实是一种浅拷贝；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.基本演练</span></span><br><span class="line">   <span class="comment">// ES6</span></span><br><span class="line">   <span class="keyword">const</span> names = [<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;cba&quot;</span>, <span class="string">&quot;nba&quot;</span>, <span class="string">&quot;mba&quot;</span>]</span><br><span class="line">   <span class="keyword">const</span> str = <span class="string">&quot;Hello&quot;</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">const</span> newNames = [...names, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;bbb&quot;</span>]</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(newNames)</span><br><span class="line"></span><br><span class="line">   <span class="keyword">function</span> <span class="title function_">foo</span> (name1, name2, ...args) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(name1, name2, args)</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="title function_">foo</span>(...names)</span><br><span class="line">   <span class="title function_">foo</span>(...str)</span><br><span class="line"></span><br><span class="line">   <span class="comment">// ES9(ES2018)</span></span><br><span class="line">   <span class="keyword">const</span> obj = &#123;</span><br><span class="line">     <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">     <span class="attr">age</span>: <span class="number">18</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">// 不可以这样来使用</span></span><br><span class="line">   <span class="comment">// foo(...obj) // 在函数的调用时, 用展开运算符, 将对应的展开数据, 进行迭代</span></span><br><span class="line">   <span class="comment">// 可迭代对象: 数组/string/arguments</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">const</span> info = &#123;</span><br><span class="line">     ...obj,</span><br><span class="line">     <span class="attr">height</span>: <span class="number">1.88</span>,</span><br><span class="line">     <span class="attr">address</span>: <span class="string">&quot;广州市&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(info)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684920111196-001a93ec-1014-4eb5-b6c1-ce967b6dc017.png#averageHue=%23fcfbfb&clientId=u048d03ca-1ce9-4&from=paste&height=96&id=ua80e0355&originHeight=121&originWidth=262&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=4352&status=done&style=none&taskId=u3a85616b-3fd9-46f7-b3aa-357b4fe81fb&title=&width=207.52474463718735" alt="image.png"></p>
+<h3 id="引用赋值-浅-深拷贝"><a href="#引用赋值-浅-深拷贝" class="headerlink" title="引用赋值-浅&#x2F;深拷贝"></a>引用赋值-浅&#x2F;深拷贝</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">      <span class="attr">height</span>: <span class="number">1.88</span>,</span><br><span class="line">      <span class="attr">friend</span>: &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;curry&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1.引用赋值</span></span><br><span class="line">    <span class="comment">// const info1 = obj</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.浅拷贝</span></span><br><span class="line">    <span class="keyword">const</span> info2 = &#123;</span><br><span class="line">      ...obj</span><br><span class="line">    &#125;</span><br><span class="line">    info2.<span class="property">name</span> = <span class="string">&quot;kobe&quot;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>)<span class="comment">//why</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(info2.<span class="property">name</span>)<span class="comment">//kobe</span></span><br><span class="line">    info2.<span class="property">friend</span>.<span class="property">name</span> = <span class="string">&quot;james&quot;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">friend</span>.<span class="property">name</span>)<span class="comment">//james</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">      <span class="attr">height</span>: <span class="number">1.88</span>,</span><br><span class="line">      <span class="attr">friend</span>: &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;curry&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.深拷贝</span></span><br><span class="line">    <span class="comment">// 方式一: 第三方库</span></span><br><span class="line">    <span class="comment">// 方式二: 自己实现</span></span><br><span class="line">    <span class="comment">// function deepCopy(obj) &#123;&#125;</span></span><br><span class="line">    <span class="comment">// 方式三: 利用先有的js机制, 实现深拷贝JSON</span></span><br><span class="line">    <span class="keyword">const</span> info3 = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj))</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(info3.<span class="property">friend</span>.<span class="property">name</span>)<span class="comment">//curry</span></span><br><span class="line">    info3.<span class="property">friend</span>.<span class="property">name</span> = <span class="string">&quot;james&quot;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;info3.friend.name:&quot;</span>, info3.<span class="property">friend</span>.<span class="property">name</span>)<span class="comment">//james</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">friend</span>.<span class="property">name</span>)<span class="comment">//curry</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Symbol的基本使用"><a href="#Symbol的基本使用" class="headerlink" title="Symbol的基本使用"></a>Symbol的基本使用</h3><ul>
+<li>Symbol是什么呢？Symbol是ES6中新增的一个基本数据类型，翻译为符号。</li>
+<li>那么为什么需要Symbol呢？<ul>
+<li>在ES6之前，对象的属性名都是字符串形式，那么很容易造成属性名的冲突；</li>
+<li>比如原来有一个对象，我们希望在其中添加一个新的属性和值，但是我们在不确定它原来内部有什么内容的情况下，很容易 造成冲突，从而覆盖掉它内部的某个属性；</li>
+<li>比如我们前面在讲apply、call、bind实现时，我们有给其中添加一个fn属性，那么如果它内部原来已经有了fn属性了呢？</li>
+<li>比如开发中我们使用混入，那么混入中出现了同名的属性，必然有一个会被覆盖掉；</li>
+</ul>
+</li>
+<li>Symbol就是为了解决上面的问题，用来<strong>生成一个独一无二的值。</strong><ul>
+<li>Symbol值是通过Symbol函数来生成的，生成后可以作为属性名；</li>
+<li>也就是在ES6中，对象的属性名可以使用字符串，也可以使用Symbol值；</li>
+</ul>
+</li>
+<li><strong>Symbol即使多次创建值，它们也是不同的</strong>：Symbol函数执行后每次创建出来的值都是独一无二的；</li>
+<li>我们也可以在创建Symbol值的时候传入一个描述description：这个是ES2019（ES10）新增的特性；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s1 = <span class="title class_">Symbol</span>()</span><br><span class="line"> <span class="comment">// const info = &#123; name: &quot;why&quot; &#125;</span></span><br><span class="line"> <span class="keyword">const</span> obj = &#123;</span><br><span class="line">   [s1]: <span class="string">&quot;aaa&quot;</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> s2 = <span class="title class_">Symbol</span>()</span><br><span class="line"> obj[s2] = <span class="string">&quot;bbb&quot;</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684920628734-336e7c81-2a81-4a0d-a770-df4d482bfd16.png#averageHue=%23fefdfd&clientId=u048d03ca-1ce9-4&from=paste&height=34&id=u4aeaa2fb&originHeight=43&originWidth=415&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=3457&status=done&style=none&taskId=u22c0253a-33b5-4a7b-8b2e-1e53df7ef2a&title=&width=328.71285887188077" alt="image.png"></p>
+<ul>
+<li>前面我们讲Symbol的目的是为了创建一个独一无二的值，那么如果我们现在就是想创建相同的Symbol应该怎么来做呢？<ul>
+<li>我们可以使用Symbol.for方法来做到这一点；</li>
+<li>并且我们可以通过Symbol.keyFor方法来获取对应的key；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> s1 = <span class="title class_">Symbol</span>() <span class="comment">// aaa</span></span><br><span class="line"> <span class="keyword">const</span> s2 = <span class="title class_">Symbol</span>() <span class="comment">// bbb</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 1.加入对象中</span></span><br><span class="line"> <span class="keyword">const</span> obj = &#123;</span><br><span class="line">   <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">   <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">   [s1]: <span class="string">&quot;aaa&quot;</span>,</span><br><span class="line">   [s2]: <span class="string">&quot;bbb&quot;</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 2.获取symbol对应的key</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(obj))</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="title function_">getOwnPropertySymbols</span>(obj))</span><br><span class="line"> <span class="keyword">const</span> symbolKeys = <span class="title class_">Object</span>.<span class="title function_">getOwnPropertySymbols</span>(obj)</span><br><span class="line"> <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">of</span> symbolKeys) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(obj[key])</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 3.description</span></span><br><span class="line"> <span class="comment">// 3.1.Symbol函数直接生成的值, 都是独一无二</span></span><br><span class="line"> <span class="keyword">const</span> s3 = <span class="title class_">Symbol</span>(<span class="string">&quot;ccc&quot;</span>)</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(s3.<span class="property">description</span>)</span><br><span class="line"> <span class="keyword">const</span> s4 = <span class="title class_">Symbol</span>(s3.<span class="property">description</span>)</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(s3 === s4)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 3.2. 如果相同的key, 通过Symbol.for可以生成相同的Symbol值</span></span><br><span class="line"> <span class="keyword">const</span> s5 = <span class="title class_">Symbol</span>.<span class="title function_">for</span>(<span class="string">&quot;ddd&quot;</span>)</span><br><span class="line"> <span class="keyword">const</span> s6 = <span class="title class_">Symbol</span>.<span class="title function_">for</span>(<span class="string">&quot;ddd&quot;</span>)</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(s5 === s6)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 获取传入的key</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Symbol</span>.<span class="title function_">keyFor</span>(s5))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684920746297-3cea3081-b814-4bc2-94b6-6e468ea25a39.png#averageHue=%23fdfcfc&clientId=u048d03ca-1ce9-4&from=paste&height=291&id=ub457c924&originHeight=367&originWidth=317&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=14095&status=done&style=none&taskId=ub6d364f2-819d-4066-8b2d-4f711e9704c&title=&width=251.08909942743662" alt="image.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/">https://tuanliang.github.io/2024/08/28/JS高级-ES13新特性1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JS%E9%AB%98%E7%BA%A7/">JS高级</a></div><div class="post_share"><div class="social-share" data-image="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img class="cover" src="/image/bike.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ES6~ES13新特性2</div></div></a></div><div class="next-post pull-right"><a href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img class="cover" src="/image/zhongguofeng.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS高级-ES6实现继承</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img class="cover" src="/image/bike.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-30</div><div class="title">ES6~ES13新特性2</div></div></a></div><div><a href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img class="cover" src="/image/fangao.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-30</div><div class="title">ES6~ES13新特性3</div></div></a></div><div><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img class="cover" src="/image/yewanshu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">JS高级-ES5中实现继承</div></div></a></div><div><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/" title="JS高级-内存管理和闭包"><img class="cover" src="/image/tianyuan.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">JS高级-内存管理和闭包</div></div></a></div><div><a href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img class="cover" src="/image/zhongguofeng.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-28</div><div class="title">JS高级-ES6实现继承</div></div></a></div><div><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A2%9E%E5%BC%BA%E7%9F%A5%E8%AF%86/" title="JS高级-函数的增强知识"><img class="cover" src="/image/walk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">JS高级-函数的增强知识</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#let-const%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">let&#x2F;const基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#let-const%E7%9A%84%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">let&#x2F;const的块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">块级作用域的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%A8%A1%E6%9D%BF%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">字符串模板基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E7%94%A8%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">函数默认参数用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E6%B3%A8%E6%84%8F"><span class="toc-number">6.</span> <span class="toc-text">函数默认参数注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%84"><span class="toc-number">7.</span> <span class="toc-text">函数默认参数解构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E5%89%A9%E4%BD%99%E5%8F%82%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">函数的剩余参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E7%9A%84%E8%A1%A5%E5%85%85"><span class="toc-number">9.</span> <span class="toc-text">函数箭头函数的补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%95%E5%BC%80%E8%AF%AD%E6%B3%95"><span class="toc-number">10.</span> <span class="toc-text">展开语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%B5%8B%E5%80%BC-%E6%B5%85-%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">11.</span> <span class="toc-text">引用赋值-浅&#x2F;深拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbol%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">12.</span> <span class="toc-text">Symbol的基本使用</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img src="/image/fangao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性3"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3">ES6~ES13新特性3</a><time datetime="2024-08-30T07:49:34.000Z" title="发表于 2024-08-30 15:49:34">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img src="/image/bike.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性2"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2">ES6~ES13新特性2</a><time datetime="2024-08-30T07:49:21.000Z" title="发表于 2024-08-30 15:49:21">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES13新特性1"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1">JS高级-ES13新特性1</a><time datetime="2024-08-28T02:43:57.000Z" title="发表于 2024-08-28 10:43:57">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img src="/image/zhongguofeng.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES6实现继承"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承">JS高级-ES6实现继承</a><time datetime="2024-08-28T02:43:16.000Z" title="发表于 2024-08-28 10:43:16">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img src="/image/yewanshu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES5中实现继承"/></a><div class="content"><a class="title" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承">JS高级-ES5中实现继承</a><time datetime="2024-08-27T13:02:38.000Z" title="发表于 2024-08-27 21:02:38">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/45663c9f2ce54eb2ae8628efb0c43390.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>

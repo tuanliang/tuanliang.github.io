@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JS高级-ES6实现继承 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS高级-ES6实现继承">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS高级-ES6实现继承">
+<meta property="og:url" content="https://tuanliang.github.io/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="JS高级-ES6实现继承">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/zhongguofeng.jpg">
+<meta property="article:published_time" content="2024-08-28T02:43:16.000Z">
+<meta property="article:modified_time" content="2024-08-28T02:45:32.482Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="JS高级">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/zhongguofeng.jpg"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JS高级-ES6实现继承',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-28 10:45:32'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/zhongguofeng.jpg')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">JS高级-ES6实现继承</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-28T02:43:16.000Z" title="发表于 2024-08-28 10:43:16">2024-08-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-28T02:45:32.482Z" title="更新于 2024-08-28 10:45:32">2024-08-28</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JS高级-ES6实现继承"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="对象的方法补充"><a href="#对象的方法补充" class="headerlink" title="对象的方法补充"></a>对象的方法补充</h3><ul>
+<li>hasOwnProperty<ul>
+<li>对象是否有某一个属于自己的属性（不是在原型上的属性）</li>
+</ul>
+</li>
+<li>in&#x2F;for in 操作符<ul>
+<li>判断某个属性是否在某个对象或者对象的原型上</li>
+</ul>
+</li>
+<li>instanceof<ul>
+<li>用于检测构造函数（Person、Student类）的pototype，是否出现在某个实例对象的原型链上</li>
+</ul>
+</li>
+<li>isPrototypeOf<ul>
+<li>用于检测某个对象，是否出现在某个实例对象的原型链上<h3 id=""><a href="#" class="headerlink" title=""></a></h3></li>
+</ul>
+</li>
+</ul>
+<h3 id="class定义类"><a href="#class定义类" class="headerlink" title="class定义类"></a>class定义类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 创建实例对象</span></span><br><span class="line"> <span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"> <span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(p1, p2)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 另外一种定义方法: 表达式写法(了解, 少用)</span></span><br><span class="line"> <span class="keyword">var</span> <span class="title class_">Student</span> = <span class="keyword">class</span> &#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> foo = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> stu1 = <span class="keyword">new</span> <span class="title class_">Student</span>()</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(stu1)</span><br></pre></td></tr></table></figure>
+
+<h3 id="类和构造函数的异同"><a href="#类和构造函数的异同" class="headerlink" title="类和构造函数的异同"></a>类和构造函数的异同</h3><ul>
+<li>我们来研究一下类的一些特性：<ul>
+<li>你会发现它和我们的构造函数的特性其实是一致的；</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684911357877-b48a4eb8-1199-44dd-8c89-81d682f3b6dc.png#averageHue=%232a2f37&clientId=u6c69e973-9036-4&from=paste&height=194&id=u4d257ff0&originHeight=346&originWidth=949&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=96816&status=done&style=none&taskId=u77637fd9-2b53-4619-8835-0c4f672963d&title=&width=531.3836059570312" alt="image.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="类的构造函数"><a href="#类的构造函数" class="headerlink" title="类的构造函数"></a>类的构造函数</h3><ul>
+<li>如果我们希望在创建对象的时候给类传递一些参数，这个时候应该如何做呢？<ul>
+<li>每个类都可以有一个自己的构造函数（方法），这个方法的名称是固定的constructor；</li>
+<li>当我们通过new操作符，操作一个类的时候会调用这个类的构造函数constructor；</li>
+<li>每个类只能有一个构造函数，如果包含多个构造函数，那么会抛出异常；</li>
+</ul>
+</li>
+<li>当我们通过new关键字操作类的时候，会调用这个constructor函数，并且执行如下操作：<ul>
+<li>1.在内存中创建一个新的对象（空对象）；</li>
+<li>2.这个对象内部的[[prototype]]属性会被赋值为该类的prototype属性；</li>
+<li>3.构造函数内部的this，会指向创建出来的新对象；</li>
+<li>4.执行构造函数的内部代码（函数体代码）；</li>
+<li>5.如果构造函数没有返回非空对象，则返回创建出来的新对象；</li>
+</ul>
+</li>
+</ul>
+<h3 id="类的实例方法"><a href="#类的实例方法" class="headerlink" title="类的实例方法"></a>类的实例方法</h3><ul>
+<li>在上面我们定义的属性都是直接放到了this上，也就意味着它是放到了创建出来的新对象中：<ul>
+<li>在前面我们说过对于实例的方法，我们是希望放到原型上的，这样可以被多个实例来共享；</li>
+<li>这个时候我们可以直接在类中定义；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">   <span class="comment">// 1.类中的构造函数</span></span><br><span class="line">   <span class="comment">// 当我们通过new关键字调用一个Person类时, 默认调用class中的constructor方法</span></span><br><span class="line">   <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 2.实例方法</span></span><br><span class="line">   <span class="comment">// 本质上是放在Person.prototype</span></span><br><span class="line">   running () &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&quot; running~&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">   eating () &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&quot; eating~&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 创建实例对象</span></span><br><span class="line"> <span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;why&quot;</span>, <span class="number">18</span>)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 使用实例对象中属性和方法</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(p1.<span class="property">name</span>, p1.<span class="property">age</span>)<span class="comment">// why 18</span></span><br><span class="line"> p1.<span class="title function_">running</span>() <span class="comment">//why running~</span></span><br><span class="line"> p1.<span class="title function_">eating</span>() <span class="comment">//why eating~</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 研究内容</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span> === p1.<span class="property">__proto__</span>)<span class="comment">//true</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property">running</span>) <span class="comment">//undefined</span></span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">running</span>)</span><br><span class="line">                                       <span class="comment">// ƒ running() &#123;</span></span><br><span class="line">                                       <span class="comment">//     console.log(this.name + &quot; running~&quot;)</span></span><br><span class="line">                                       <span class="comment">//   &#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="类的访问器方法"><a href="#类的访问器方法" class="headerlink" title="类的访问器方法"></a>类的访问器方法</h3><p>我们之前讲对象的属性描述符时有讲过对象可以添加setter和getter函数的，那么类也是可以的<br><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684913555152-809c9b43-bc1d-4baf-9225-fb13f0c4e1d3.png#averageHue=%23292d36&clientId=u6c69e973-9036-4&from=paste&height=355&id=u168e2cbb&originHeight=634&originWidth=839&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=102294&status=done&style=none&taskId=u256b315a-87a0-4edf-8744-0dcfb7f5201&title=&width=469.55438232421875" alt="image.png"></p>
+<h3 id="类的静态方法"><a href="#类的静态方法" class="headerlink" title="类的静态方法"></a>类的静态方法</h3><p>静态方法通常用于定义直接使用类来执行的方法，不需要有类的实例，使用static关键字来定义：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names = [<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;cba&quot;</span>, <span class="string">&quot;nba&quot;</span>, <span class="string">&quot;mba&quot;</span>]</span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">   <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">     <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 实例方法</span></span><br><span class="line">   running () &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&quot; running~&quot;</span>)</span><br><span class="line">   &#125;</span><br><span class="line">   eating () &#123; &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 类方法(静态方法)</span></span><br><span class="line">   <span class="keyword">static</span> randomPerson () &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">     <span class="keyword">var</span> randomName = names[<span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * names.<span class="property">length</span>)]</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">this</span>(randomName, <span class="title class_">Math</span>.<span class="title function_">floor</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>() * <span class="number">100</span>))</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="title class_">Person</span>()</span><br><span class="line"> p1.<span class="title function_">running</span>()</span><br><span class="line"> p1.<span class="title function_">eating</span>()</span><br><span class="line"> <span class="keyword">var</span> randomPerson = <span class="title class_">Person</span>.<span class="title function_">randomPerson</span>()</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(randomPerson)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684913786457-5b1e0340-2896-4f73-8f46-8aaa8f5cbbed.png#averageHue=%23fcfbfa&clientId=u6c69e973-9036-4&from=paste&height=224&id=u4765a904&originHeight=283&originWidth=386&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=12560&status=done&style=none&taskId=u39f1eb4e-6945-4917-8fbc-e16e7996927&title=&width=305.74256270974934" alt="image.png"></p>
+<h3 id="ES6类的继承-extends"><a href="#ES6类的继承-extends" class="headerlink" title="ES6类的继承 - extends"></a>ES6类的继承 - extends</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义父类</span></span><br><span class="line">   <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">     <span class="title function_">constructor</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">age</span> = age</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     running () &#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>, <span class="string">&quot; ex-running~&quot;</span>)</span><br><span class="line">     &#125;</span><br><span class="line">     eating () &#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>, <span class="string">&quot; ex-eating~&quot;</span>)</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Person</span> &#123;</span><br><span class="line">     <span class="title function_">constructor</span>(<span class="params">name, age, sno, score</span>) &#123;</span><br><span class="line">       <span class="variable language_">super</span>(name, age)</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">sno</span> = sno</span><br><span class="line">       <span class="variable language_">this</span>.<span class="property">score</span> = score</span><br><span class="line">     &#125;</span><br><span class="line">     studying () &#123;</span><br><span class="line">       <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span>, <span class="string">&quot; my-studying~&quot;</span>)</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> stu1 = <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;why&quot;</span>, <span class="number">18</span>, <span class="number">111</span>, <span class="number">100</span>)</span><br><span class="line">   stu1.<span class="title function_">running</span>()</span><br><span class="line">   stu1.<span class="title function_">eating</span>()</span><br><span class="line">   stu1.<span class="title function_">studying</span>()</span><br></pre></td></tr></table></figure>
+
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><ul>
+<li>我们会发现在上面的代码中我使用了一个super关键字，这个super关键字有不同的使用方式：</li>
+<li>注意：在子（派生）类的构造函数中使用this或者返回默认对象之前，必须先通过super调用父类的构造函数！</li>
+<li>super的使用位置有三个：子类的构造函数、实例方法、静态方法；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  running () &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;ex-running&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  eating () &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;ex-eating&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> sleep () &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;static animal sleep&quot;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Dog</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Animal</span> &#123;</span><br><span class="line">  <span class="comment">// 子类如果对于父类的方法实现不满足(继承过来的方法)</span></span><br><span class="line">  <span class="comment">// 重新实现称之为重写(父类方法的重写)</span></span><br><span class="line">  running () &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;dog四条腿&quot;</span>)</span><br><span class="line">    <span class="comment">// 调用父类的方法</span></span><br><span class="line">    <span class="variable language_">super</span>.<span class="title function_">running</span>()</span><br><span class="line">    <span class="comment">// console.log(&quot;running~&quot;)</span></span><br><span class="line">    <span class="comment">// console.log(&quot;dog四条腿running~&quot;)</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> sleep () &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;趴着&quot;</span>)</span><br><span class="line">    <span class="variable language_">super</span>.<span class="title function_">sleep</span>()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dog = <span class="keyword">new</span> <span class="title class_">Dog</span>()</span><br><span class="line">dog.<span class="title function_">running</span>()</span><br><span class="line">dog.<span class="title function_">eating</span>()</span><br><span class="line"></span><br><span class="line"><span class="title class_">Dog</span>.<span class="title function_">sleep</span>()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684914075265-ee0f6e6e-1591-4e6d-93c2-9d35a3a67b55.png#averageHue=%23f7f6f5&clientId=u6c69e973-9036-4&from=paste&height=97&id=u05008e45&originHeight=123&originWidth=216&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=3197&status=done&style=none&taskId=u27cabba8-73e0-40ac-b476-bad9d8dc38d&title=&width=171.0891024489789" alt="image.png"></p>
+<h3 id="继承内置类"><a href="#继承内置类" class="headerlink" title="继承内置类"></a>继承内置类</h3><p>我们也可以让我们的类继承自内置类，比如Array：<br><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684914172796-491f276f-dd44-4a4c-9eec-fba73618a315.png#averageHue=%23292e37&clientId=u6c69e973-9036-4&from=paste&height=178&id=uef2d4ef7&originHeight=305&originWidth=613&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=53729&status=done&style=none&taskId=uc6d3ca40-b97d-48f1-8bfd-14c15499a11&title=&width=357.5445251464844" alt="image.png"></p>
+<h3 id="类的混入mixin"><a href="#类的混入mixin" class="headerlink" title="类的混入mixin"></a>类的混入mixin</h3><ul>
+<li>JavaScript的类只支持单继承：也就是只能有一个父类<ul>
+<li>那么在开发中我们我们需要在一个类中添加更多相似的功能时，应该如何来做呢？</li>
+<li>这个时候我们可以使用混入（mixin）；</li>
+</ul>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684914280336-4180cfd9-ef18-4e4e-85f3-585a6f769c73.png#averageHue=%23292d36&clientId=u6c69e973-9036-4&from=paste&height=417&id=ud099f728&originHeight=527&originWidth=1465&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=131946&status=done&style=none&taskId=u61641352-7300-4acd-97aa-039fbe553ad&title=&width=1160.3959957766392" alt="image.png"></li>
+</ul>
+<h3 id="JavaScript中的多态"><a href="#JavaScript中的多态" class="headerlink" title="JavaScript中的多态"></a><strong>JavaScript中的多态</strong></h3><ul>
+<li>面向对象的三大特性：封装、继承、多态。<ul>
+<li>前面两个我们都已经详细解析过了，接下来我们讨论一下JavaScript的多态。</li>
+</ul>
+</li>
+<li>JavaScript有多态吗？<ul>
+<li>个人的总结：不同的数据类型进行同一个操作，表现出不同的行为，就是多态的体现。</li>
+<li>那么从上面的定义来看，JavaScript是一定存在多态的。</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684914846372-7f293e2a-6c38-4cfc-a6ef-b06e81465a0b.png#averageHue=%232a2f37&clientId=uc4977282-adbb-4&from=paste&height=137&id=ud720dfd3&originHeight=190&originWidth=383&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=23868&status=done&style=none&taskId=ue67c5aa9-5448-40ee-af72-e0a4c31b8c8&title=&width=276.341552734375" alt="image.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="字面量的增强"><a href="#字面量的增强" class="headerlink" title="字面量的增强"></a><strong>字面量的增强</strong></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   1.属性的增强</span></span><br><span class="line"><span class="comment">   2.方法的增强</span></span><br><span class="line"><span class="comment">   3.计算属性名的写法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> name = <span class="string">&quot;why&quot;</span></span><br><span class="line"> <span class="keyword">var</span> age = <span class="number">18</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> key = <span class="string">&quot;address&quot;</span> + <span class="string">&quot; city&quot;</span></span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> obj = &#123;</span><br><span class="line">   <span class="comment">// 1.属性的增强</span></span><br><span class="line">   name,</span><br><span class="line">   age,</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 2.方法的增强</span></span><br><span class="line">   <span class="attr">running</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="title function_">swimming</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="attr">eating</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">   &#125;,</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 3.计算属性名</span></span><br><span class="line">   [key]: <span class="string">&quot;广州&quot;</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> obj.<span class="title function_">running</span>()</span><br><span class="line"> obj.<span class="title function_">swimming</span>()</span><br><span class="line"> obj.<span class="title function_">eating</span>()</span><br><span class="line"></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">   <span class="keyword">var</span> message = <span class="string">&quot;Hello World&quot;</span></span><br><span class="line">   <span class="keyword">var</span> info = <span class="string">&quot;my name is why&quot;</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> &#123; message, info &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> result = <span class="title function_">foo</span>()</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(result.<span class="property">message</span>, result.<span class="property">info</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a><strong>解构</strong></h3><ul>
+<li>ES6中新增了一个从数组或对象中方便获取数据的方法，称之为解构Destructuring。<ul>
+<li>解构赋值 是一种特殊的语法，它使我们可以将数组或对象“拆包”至一系列变量中。</li>
+</ul>
+</li>
+<li>我们可以划分为：数组的解构和对象的解构。</li>
+<li><strong>数组的解构：</strong><ul>
+<li>基本解构过程</li>
+<li>顺序解构</li>
+<li>解构出数组：…语法</li>
+<li>默认值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> names = [<span class="string">&quot;abc&quot;</span>, <span class="string">&quot;cba&quot;</span>, <span class="literal">undefined</span>, <span class="string">&quot;nba&quot;</span>, <span class="string">&quot;mba&quot;</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.数组的解构</span></span><br><span class="line"><span class="comment">// var name1 = names[0]</span></span><br><span class="line"><span class="comment">// var name2 = names[1]</span></span><br><span class="line"><span class="comment">// var name3 = names[2]</span></span><br><span class="line"><span class="comment">// 1.1. 基本使用</span></span><br><span class="line"><span class="keyword">var</span> [name1, name2, name3] = names</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name1, name2, name3)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.2. 顺序问题: 严格的顺序</span></span><br><span class="line"><span class="keyword">var</span> [name1, , name3] = names</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name1, name3)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.3. 解构出数组</span></span><br><span class="line"><span class="keyword">var</span> [name1, name2, ...newNames] = names</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name1, name2, newNames)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.4. 解构的默认值</span></span><br><span class="line"><span class="keyword">var</span> [name1, name2, name3 = <span class="string">&quot;default&quot;</span>] = names</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name1, name2, name3)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684918004437-935e1196-031e-4e08-91aa-dd2ab1868121.png#averageHue=%23f8f6f5&clientId=uc4977282-adbb-4&from=paste&height=77&id=u968938ff&originHeight=97&originWidth=203&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=3674&status=done&style=none&taskId=u249bbf7a-5f28-4914-b483-fc1726e687b&title=&width=160.79207313491997" alt="image.png"></li>
+<li><strong>对象的解构：</strong><ul>
+<li>基本解构过程</li>
+<li>任意顺序</li>
+<li>重命名</li>
+<li>默认值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.对象的解构</span></span><br><span class="line"> <span class="keyword">var</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>, <span class="attr">age</span>: <span class="number">18</span>, <span class="attr">height</span>: <span class="number">1.88</span> &#125;</span><br><span class="line"> <span class="comment">// var name = obj.name</span></span><br><span class="line"> <span class="comment">// var age = obj.age</span></span><br><span class="line"> <span class="comment">// var height = obj.height</span></span><br><span class="line"> <span class="comment">// 2.1. 基本使用</span></span><br><span class="line"> <span class="keyword">var</span> &#123; name, age, height &#125; = obj</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(name, age, height)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 2.2. 顺序问题: 对象的解构是没有顺序, 根据key解构</span></span><br><span class="line"> <span class="keyword">var</span> &#123; height, name, age &#125; = obj</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(name, age, height)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 2.3. 对变量进行重命名</span></span><br><span class="line"> <span class="keyword">var</span> &#123; <span class="attr">height</span>: wHeight, <span class="attr">name</span>: wName, <span class="attr">age</span>: wAge &#125; = obj</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(wName, wAge, wHeight)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 2.4. 默认值</span></span><br><span class="line"> <span class="keyword">var</span> &#123;</span><br><span class="line">   <span class="attr">height</span>: wHeight,</span><br><span class="line">   <span class="attr">name</span>: wName,</span><br><span class="line">   <span class="attr">age</span>: wAge,</span><br><span class="line">   <span class="attr">address</span>: wAddress = <span class="string">&quot;中国&quot;</span></span><br><span class="line"> &#125; = obj</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(wName, wAge, wHeight, wAddress)</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 2.5. 对象的剩余内容</span></span><br><span class="line"> <span class="keyword">var</span> &#123;</span><br><span class="line">   name,</span><br><span class="line">   age,</span><br><span class="line">   ...newObj</span><br><span class="line"> &#125; = obj</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(newObj)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">// 应用: 在函数中(其他类似的地方)</span></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">getPosition</span> (&#123; x, y &#125;) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(x, y)</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">getPosition</span>(&#123; <span class="attr">x</span>: <span class="number">10</span>, <span class="attr">y</span>: <span class="number">20</span> &#125;)</span><br><span class="line"> <span class="title function_">getPosition</span>(&#123; <span class="attr">x</span>: <span class="number">25</span>, <span class="attr">y</span>: <span class="number">35</span> &#125;)</span><br><span class="line"></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">foo</span> (num) &#123; &#125;</span><br><span class="line"></span><br><span class="line"> <span class="title function_">foo</span>(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1684918067155-a35ca17e-7c4a-449f-bb1e-2a2b343b6617.png#averageHue=%23fdfcfc&clientId=uc4977282-adbb-4&from=paste&height=135&id=u2c19aac5&originHeight=170&originWidth=211&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=4362&status=done&style=none&taskId=u87204bc4-82ce-4c30-97a1-5259b33d27c&title=&width=167.12870655895622" alt="image.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/">https://tuanliang.github.io/2024/08/28/JS高级-ES6实现继承/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JS%E9%AB%98%E7%BA%A7/">JS高级</a></div><div class="post_share"><div class="social-share" data-image="/image/zhongguofeng.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img class="cover" src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JS高级-ES13新特性1</div></div></a></div><div class="next-post pull-right"><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img class="cover" src="/image/yewanshu.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS高级-ES5中实现继承</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img class="cover" src="/image/bike.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-30</div><div class="title">ES6~ES13新特性2</div></div></a></div><div><a href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img class="cover" src="/image/fangao.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-30</div><div class="title">ES6~ES13新特性3</div></div></a></div><div><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img class="cover" src="/image/yewanshu.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">JS高级-ES5中实现继承</div></div></a></div><div><a href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img class="cover" src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-28</div><div class="title">JS高级-ES13新特性1</div></div></a></div><div><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/" title="JS高级-内存管理和闭包"><img class="cover" src="/image/tianyuan.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">JS高级-内存管理和闭包</div></div></a></div><div><a href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-%E5%87%BD%E6%95%B0%E7%9A%84%E5%A2%9E%E5%BC%BA%E7%9F%A5%E8%AF%86/" title="JS高级-函数的增强知识"><img class="cover" src="/image/walk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-27</div><div class="title">JS高级-函数的增强知识</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95%E8%A1%A5%E5%85%85"><span class="toc-number">1.</span> <span class="toc-text">对象的方法补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#class%E5%AE%9A%E4%B9%89%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">class定义类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%92%8C%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E5%BC%82%E5%90%8C"><span class="toc-number">4.</span> <span class="toc-text">类和构造函数的异同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">类的构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">类的实例方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E8%AE%BF%E9%97%AE%E5%99%A8%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">类的访问器方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">类的静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF-extends"><span class="toc-number">9.</span> <span class="toc-text">ES6类的继承 - extends</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#super%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">10.</span> <span class="toc-text">super关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E5%86%85%E7%BD%AE%E7%B1%BB"><span class="toc-number">11.</span> <span class="toc-text">继承内置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E6%B7%B7%E5%85%A5mixin"><span class="toc-number">12.</span> <span class="toc-text">类的混入mixin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript%E4%B8%AD%E7%9A%84%E5%A4%9A%E6%80%81"><span class="toc-number">13.</span> <span class="toc-text">JavaScript中的多态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E5%A2%9E%E5%BC%BA"><span class="toc-number">14.</span> <span class="toc-text">字面量的增强</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84"><span class="toc-number">15.</span> <span class="toc-text">解构</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img src="/image/fangao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性3"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3">ES6~ES13新特性3</a><time datetime="2024-08-30T07:49:34.000Z" title="发表于 2024-08-30 15:49:34">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img src="/image/bike.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性2"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2">ES6~ES13新特性2</a><time datetime="2024-08-30T07:49:21.000Z" title="发表于 2024-08-30 15:49:21">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES13新特性1"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1">JS高级-ES13新特性1</a><time datetime="2024-08-28T02:43:57.000Z" title="发表于 2024-08-28 10:43:57">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img src="/image/zhongguofeng.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES6实现继承"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承">JS高级-ES6实现继承</a><time datetime="2024-08-28T02:43:16.000Z" title="发表于 2024-08-28 10:43:16">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img src="/image/yewanshu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES5中实现继承"/></a><div class="content"><a class="title" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承">JS高级-ES5中实现继承</a><time datetime="2024-08-27T13:02:38.000Z" title="发表于 2024-08-27 21:02:38">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/zhongguofeng.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>

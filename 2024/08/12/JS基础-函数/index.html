@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>JS基础-函数 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JS函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS基础-函数">
+<meta property="og:url" content="https://tuanliang.github.io/2024/08/12/JS%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="JS函数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/yewan.jpg">
+<meta property="article:published_time" content="2024-08-12T15:43:46.000Z">
+<meta property="article:modified_time" content="2024-08-12T15:45:06.519Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/yewan.jpg"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/08/12/JS%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JS基础-函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-12 23:45:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/yewan.jpg')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">JS基础-函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-12T15:43:46.000Z" title="发表于 2024-08-12 23:43:46">2024-08-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-12T15:45:06.519Z" title="更新于 2024-08-12 23:45:06">2024-08-12</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JS%E5%9F%BA%E7%A1%80/">JS基础</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JS基础-函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="arguments参数"><a href="#arguments参数" class="headerlink" title="arguments参数"></a>arguments参数</h2><ul>
+<li>事实上在函数有一个特别的对象：arguments对象<ul>
+<li>默认情况下，arguments对象是所有（非箭头）函数中都可用的局部变量；</li>
+<li>该对象中存放着所有的调用者传入的参数，从0位置开始，依次存放；</li>
+<li>arguments变量的类型是一个object类型（ array-like ），不是一个数组，但是和数组的用法看起来很相似；</li>
+<li>如果调用者传入的参数多余函数接收的参数，可以通过arguments去获取所有的参数；</li>
+</ul>
+</li>
+</ul>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><ul>
+<li>既然函数可以作为一个值相互赋值，那么也可以传递给另外一个函数。<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683450196910-6ad8174c-356c-4aad-86b9-31356e6f54e6.png#averageHue=%235b7e53&clientId=u61ebfe73-e80d-4&from=paste&height=152&id=u0cd2d1eb&originHeight=233&originWidth=861&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=37703&status=done&style=none&taskId=ub425b072-8f7f-4b17-8b43-20d7c26d65a&title=&width=559.9727172851562" alt="image.png"></li>
+<li>foo这种函数我们也可以称之为高阶函数；</li>
+<li>高阶函数必须至少满足两个条件之一：<ul>
+<li>接受一个或多个函数作为输入；</li>
+<li>输出一个函数；</li>
+</ul>
+</li>
+<li>匿名函数的理解：<ul>
+<li>如果在传入一个函数时，我们没有指定这个函数的名词或者通过函数表达式指定函数对应的变量，那么这个函数称之为匿名 函数。</li>
+</ul>
+</li>
+</ul>
+<p><strong>1.函数回调的概念理解</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.函数回调的概念理解</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">fn</span>) &#123;</span><br><span class="line">  <span class="comment">// 通过fn去调用bar函数的过程, 称之为函数的回调</span></span><br><span class="line">  <span class="title function_">fn</span>()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;bar函数被执行了~&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">foo</span>(bar)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.函数回调的案例</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.函数回调的案例</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">request</span>(<span class="params">url, callback</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;根据URL向服务器发送网络请求&quot;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;需要花费比较长的时间拿到对应的结果&quot;</span>)</span><br><span class="line">  <span class="keyword">var</span> list = [<span class="string">&quot;javascript&quot;</span>, <span class="string">&quot;javascript学习&quot;</span>, <span class="string">&quot;JavaScript高级编程&quot;</span>]</span><br><span class="line">  <span class="title function_">callback</span>(list)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">handleResult</span>(<span class="params">res</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;在handleResult中拿到结果:&quot;</span>, res)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">request</span>(<span class="string">&quot;url&quot;</span>, handleResult)</span><br></pre></td></tr></table></figure>
+
+<p>3.<strong>函数回调的案例重构</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.函数回调的案例重构</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">request</span>(<span class="params">url, callback</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;根据URL向服务器发送网络请求&quot;</span>)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;需要花费比较长的时间拿到对应的结果&quot;</span>)</span><br><span class="line">      <span class="keyword">var</span> list = [<span class="string">&quot;javascript&quot;</span>, <span class="string">&quot;javascript学习&quot;</span>, <span class="string">&quot;JavaScript高级编程&quot;</span>]</span><br><span class="line">      <span class="title function_">callback</span>(list)</span><br><span class="line">    &#125;   </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 传入的函数是没有名字, 匿名函数</span></span><br><span class="line">    <span class="title function_">request</span>(<span class="string">&quot;url&quot;</span>, <span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;在handleResult中拿到结果:&quot;</span>, res)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683450326844-2ebae428-9860-42fa-bb4a-31a2aadc339b.png#averageHue=%23fafaf9&clientId=u61ebfe73-e80d-4&from=paste&height=148&id=u3c59ee09&originHeight=187&originWidth=782&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=13134&status=done&style=none&taskId=ue377a124-a088-4cda-ba63-68b6452fb6c&title=&width=619.405917199544" alt="image.png"></p>
+<h2 id="对象的常见操作"><a href="#对象的常见操作" class="headerlink" title="对象的常见操作"></a>对象的常见操作</h2><ul>
+<li>访问对象的属性；<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683450677201-bd15f783-2c69-4edd-940f-8949a2743202.png#averageHue=%23827f60&clientId=u61ebfe73-e80d-4&from=paste&height=95&id=u8de80ed5&originHeight=120&originWidth=858&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=29582&status=done&style=none&taskId=u6a9c8f56-ca63-4646-a7ad-ac629c810e2&title=&width=679.6039347278884" alt="image.png"></li>
+<li>修改对象的属性；<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683450685084-9063e58b-d69e-409f-aebc-a415842365f0.png#averageHue=%23787b55&clientId=u61ebfe73-e80d-4&from=paste&height=102&id=u5f73360d&originHeight=129&originWidth=1079&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=27541&status=done&style=none&taskId=u30bb1bfd-a91d-4c73-b6a5-66794e2c70a&title=&width=854.65343306689" alt="image.png"></li>
+<li>添加对象的属性；<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683450691666-7469218d-4205-427a-ac87-93e954f58e8d.png#averageHue=%23647a50&clientId=u61ebfe73-e80d-4&from=paste&height=96&id=u7ed5d467&originHeight=121&originWidth=942&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=31602&status=done&style=none&taskId=uaa13d064-da71-4550-a917-f10b469b87c&title=&width=746.1385856802691" alt="image.png"></li>
+<li>删除对象的属性：delete操作符  <img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683450697139-6c006d21-4645-492c-86f0-ddf83f70bb21.png#averageHue=%235a534b&clientId=u61ebfe73-e80d-4&from=paste&height=67&id=u7adfbba5&originHeight=84&originWidth=1021&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=18754&status=done&style=none&taskId=ud706afed-eb8a-498f-b153-d569a26d19c&title=&width=808.7128407426271" alt="image.png"></li>
+</ul>
+<h2 id="方括号和引用的使用"><a href="#方括号和引用的使用" class="headerlink" title="方括号和引用的使用"></a>方括号和引用的使用</h2><ul>
+<li>为什么需要使用方括号呢？<ul>
+<li>对于多次属性来说，JavaScript是无法理解的。<img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683451648379-9da7cc87-4ef7-4011-acd1-5a052f14f635.png#averageHue=%236e8a5a&clientId=u61ebfe73-e80d-4&from=paste&height=73&id=uf3633f24&originHeight=92&originWidth=827&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=25191&status=done&style=none&taskId=u96e94cae-170c-4e5b-a853-5f7d140a385&title=&width=655.0494802097479" alt="image.png"></li>
+</ul>
+</li>
+<li>这是因为<strong>点符号</strong>要求 key 是<strong>有效的变量标识符</strong><ul>
+<li>不包含空格，不以数字开头，也不包含特殊字符（允许使用 $ 和 _）；</li>
+</ul>
+</li>
+<li><strong>这个时候我们可以使用方括号：</strong><ul>
+<li>方括号运行我们在定义或者操作属性时更加的灵活；</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683451685786-892ec644-467d-4a7c-92f1-9059baae41e1.png#averageHue=%23648d5e&clientId=u61ebfe73-e80d-4&from=paste&height=198&id=u9b56b4ab&originHeight=250&originWidth=782&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=51606&status=done&style=none&taskId=u63ca0ae9-591e-41df-a676-a726f8beb0a&title=&width=619.405917199544" alt="image.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="对象的遍历"><a href="#对象的遍历" class="headerlink" title="对象的遍历"></a>对象的遍历</h2><ul>
+<li><strong>对象的遍历（迭代）：表示获取对象中所有的属性和方法。</strong><ul>
+<li>Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组；</li>
+</ul>
+</li>
+<li>**遍历方式一：普通for循环 **</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">18</span>,</span><br><span class="line">    <span class="attr">height</span>: <span class="number">1.88</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// console.log(Object.keys(info))</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 对对象进行遍历</span></span><br><span class="line">  <span class="comment">// 1.普通for循环</span></span><br><span class="line">  <span class="keyword">var</span> infoKeys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(info)</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; infoKeys.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> key = infoKeys[i]</span><br><span class="line">    <span class="keyword">var</span> value = info[key]</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`key: <span class="subst">$&#123;key&#125;</span>, value: <span class="subst">$&#123;value&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683452092308-887ea6be-6113-47f6-bf9c-37aaa1ccb7bd.png#averageHue=%23fdfcfb&clientId=u61ebfe73-e80d-4&from=paste&height=156&id=u0380d03d&originHeight=197&originWidth=532&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=12357&status=done&style=none&taskId=ufb5fdf6f-73aa-4ed3-905a-c5c2e767a95&title=&width=421.386122698411" alt="image.png"></p>
+<ul>
+<li>**遍历方式二：for in 遍历方法  **</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> info) &#123;</span><br><span class="line">     <span class="keyword">var</span> value = info[key]</span><br><span class="line">     <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`key: <span class="subst">$&#123;key&#125;</span>, value: <span class="subst">$&#123;value&#125;</span>`</span>)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="栈内存和堆内存"><a href="#栈内存和堆内存" class="headerlink" title="栈内存和堆内存"></a>栈内存和堆内存</h2><ul>
+<li>我们知道程序是需要加载到内存中来执行的，我们可以将内存划分为两个区域：栈内存和堆内存。<ul>
+<li>原始类型占据的空间是在栈内存中分配的；</li>
+<li>对象类型占据的空间是在堆内存中分配的；</li>
+</ul>
+</li>
+</ul>
+<h2 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h2><ul>
+<li><strong>原始类型的保存方式：在变量中保存的是值本身</strong><ul>
+<li>所以原始类型也被称之为值类型；</li>
+</ul>
+</li>
+<li><strong>对象类型的保存方式：在变量中保存的是对象的“引用”</strong><ul>
+<li>所以对象类型也被称之为引用类型；</li>
+</ul>
+</li>
+</ul>
+<h2 id="思考下面的现象"><a href="#思考下面的现象" class="headerlink" title="思考下面的现象"></a>思考下面的现象</h2><p>现象一：两个对象的比较<br><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683452311298-8ff6b8b4-0065-444b-a42e-b670b77678f5.png#averageHue=%23536859&clientId=u61ebfe73-e80d-4&from=paste&height=152&id=ub4f378a5&originHeight=256&originWidth=845&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=40123&status=done&style=none&taskId=u8a0879f6-2414-49a4-b81b-2d865a600d7&title=&width=502.306884765625" alt="image.png"><br>现象二：引用的赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// // 2.现象二: 引用的赋值</span></span><br><span class="line">   <span class="keyword">var</span> info = &#123;</span><br><span class="line">     <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">     <span class="attr">friend</span>: &#123;</span><br><span class="line">       <span class="attr">name</span>: <span class="string">&quot;kobe&quot;</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> friend = info.<span class="property">friend</span></span><br><span class="line">   friend.<span class="property">name</span> = <span class="string">&quot;james&quot;</span></span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(info.<span class="property">friend</span>.<span class="property">name</span>) <span class="comment">// james</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683454026851-e4583f86-9c25-4700-a4f9-eeb0f3474871.png#averageHue=%23272b33&clientId=u61ebfe73-e80d-4&from=paste&height=361&id=ub0cbe92e&originHeight=795&originWidth=1465&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=97640&status=done&style=none&taskId=u9e333ab2-cd1f-432d-bdb0-17dd42b2fd7&title=&width=664.4108276367188" alt="函数传递-引用传递-创建新对象.png"><br>3.现象三: 值传递</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">a</span>) &#123;</span><br><span class="line">   a = <span class="number">200</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">100</span></span><br><span class="line"> <span class="title function_">foo</span>(num)</span><br><span class="line"> <span class="variable language_">console</span>.<span class="title function_">log</span>(num) <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+
+<p>4.现象四: 引用传递,<br><strong>但是在函数中创建了一个新对象, 没有对传入对象进行修改</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">a</span>) &#123;</span><br><span class="line">     a = &#123;</span><br><span class="line">       <span class="attr">name</span>: <span class="string">&quot;why&quot;</span></span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">var</span> obj = &#123; </span><br><span class="line">     <span class="attr">name</span>: <span class="string">&quot;obj&quot;</span> </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">foo</span>(obj)</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(obj)<span class="comment">//name:&quot;obj&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683454578586-56d04a9b-afbb-49e2-a130-f79c11929fb0.png#averageHue=%23272b33&clientId=u61ebfe73-e80d-4&from=paste&height=302&id=u3d1fd87f&originHeight=795&originWidth=1465&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=97640&status=done&style=none&taskId=ube307be4-cea0-41d5-8823-0e6fbea36a3&title=&width=556.4108276367188" alt="函数传递-引用传递-创建新对象.png"><br>5.现象五: 引用传递<br>** 但是对传入的对象进行修改**</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">a</span>) &#123;</span><br><span class="line">     a.<span class="property">name</span> = <span class="string">&quot;why&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> obj = &#123;</span><br><span class="line">     <span class="attr">name</span>: <span class="string">&quot;obj&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="title function_">foo</span>(obj)</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(obj)<span class="comment">//name=&quot;why&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683454507878-4d961a62-42a1-4b0e-9c60-95ac9345f476.png#averageHue=%23282c34&clientId=u61ebfe73-e80d-4&from=paste&height=363&id=YjASY&originHeight=801&originWidth=1375&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=84363&status=done&style=none&taskId=u75e15919-3bc4-4ed7-819d-9e15e6a00b3&title=&width=623.4108276367188" alt="函数传递-引用传递-修改引用属性.png"></p>
+<h2 id="this指向什么？"><a href="#this指向什么？" class="headerlink" title="this指向什么？"></a>this指向什么？</h2><ul>
+<li>目前掌握两个this的判断方法：<ul>
+<li>在全局环境下面，this指向window；</li>
+<li>通过对象调用，this指向调用的对象；</li>
+</ul>
+</li>
+</ul>
+<p><strong>情况一: 如果普通的函数被默认调用, 那么this指向的就是window</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">// 情况一: 如果普通的函数被默认调用, 那么this指向的就是window   </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">name, age</span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>)</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="title function_">foo</span>(<span class="string">&quot;abc&quot;</span>, <span class="number">123</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="keyword">function</span> <span class="title function_">sayHello</span>(<span class="params">name</span>) &#123;</span><br><span class="line">   <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="title function_">sayHello</span>()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683465766298-83be4b3a-dc08-44e9-994f-3a922e8b6c69.png#averageHue=%23fdfdfc&clientId=uefca109d-f9bd-4&from=paste&height=72&id=u5166eb4a&originHeight=91&originWidth=707&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=3473&status=done&style=none&taskId=u4bd88c20-8aea-4382-9a45-ea3a3cce8fc&title=&width=559.9999788492041" alt="image.png"><br><strong>情况二: 如果函数它是被某一个对象来引用并且调用它, 那么this会指向这个对象(调用的那个调用)</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">  <span class="attr">running</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(obj)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span> === obj)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="title function_">running</span>()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683465827699-3694ad65-90b2-4a92-911b-0d6bb6ec85b1.png#averageHue=%23fefdfd&clientId=uefca109d-f9bd-4&from=paste&height=59&id=u250c7ccb&originHeight=75&originWidth=657&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=5059&status=done&style=none&taskId=u2fdf150c-4e2d-4b2b-ae18-9f4dac412fb&title=&width=520.3960199489775" alt="image.png"><br><strong>题目一:</strong><br><strong>谁调用就指向谁</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">  <span class="attr">running</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>)   </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn = obj.<span class="property">running</span></span><br><span class="line"><span class="title function_">fn</span>() <span class="comment">// window</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683465946776-55750744-1032-4683-98df-76f9374c22ea.png#averageHue=%23fdfcfb&clientId=uefca109d-f9bd-4&from=paste&height=34&id=ua12228b1&originHeight=43&originWidth=893&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=5804&status=done&style=none&taskId=u1ce11fd8-7ed7-4650-8481-289d293ceea&title=&width=707.326705958047" alt="image.png"><br><strong>题目二:</strong><br><strong>谁调用就指向谁</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">bar</span> () &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>) <span class="comment">// obj对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;why&quot;</span>,</span><br><span class="line">  <span class="attr">bar</span>: bar</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="title function_">bar</span>()<span class="comment">// obj对象</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683465995960-cdd2b5c7-ca1a-49e5-9102-c394ff92b802.png#averageHue=%23fdfdfc&clientId=uefca109d-f9bd-4&from=paste&height=29&id=ue0afa475&originHeight=37&originWidth=435&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=2281&status=done&style=none&taskId=u13296eef-3b91-464e-9e81-1b35c509da0&title=&width=344.5544424319714" alt="image.png"></p>
+<h2 id="JavaScript中的类（ES5）"><a href="#JavaScript中的类（ES5）" class="headerlink" title="JavaScript中的类（ES5）"></a>JavaScript中的类（ES5）</h2><ul>
+<li>JavaScript中的构造函数是怎么样的？<ul>
+<li>构造函数也是一个普通的函数，从表现形式来说，和千千万万个普通的函数没有任何区别；</li>
+<li>那么如果这么一个普通的函数被使用new操作符来调用了，那么这个函数就称之为是一个构造函数；</li>
+</ul>
+</li>
+<li>如果一个函数被使用new操作符调用了，那么它会执行如下操作：<ul>
+<li><ol>
+<li>在内存中创建一个新的对象（空对象）；</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>这个对象内部的[[prototype]]属性会被赋值为该构造函数的prototype属性；</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>构造函数内部的this，会指向创建出来的新对象；</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>执行函数的内部代码（函数体代码）；</li>
+</ol>
+</li>
+<li><ol start="5">
+<li>如果构造函数没有返回非空对象，则返回创建出来的新对象；</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>工厂方法创建对象有一个比较大的问题：我们在打印对象时，对象的类型都是Object类型</li>
+<li>我们来通过构造函数实现一下： <img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1683509377395-ed0c2747-9696-453f-8ba9-cb98eb91019f.png#averageHue=%23658058&clientId=uc10aa067-2a81-4&from=paste&height=318&id=u7f11920d&originHeight=402&originWidth=1027&originalType=binary&ratio=1.2625000476837158&rotation=0&showTitle=false&size=75757&status=done&style=none&taskId=u6ac2d35a-c22f-432b-bcd8-2fe78cd4a1a&title=&width=813.4653158106543" alt="image.png"><ul>
+<li>这个构造函数可以确保我们的对象是有Person的类型的（实际是constructor的属性）</li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/08/12/JS%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/">https://tuanliang.github.io/2024/08/12/JS基础-函数/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JS/">JS</a></div><div class="post_share"><div class="social-share" data-image="/image/yewan.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/08/16/JS%E5%9F%BA%E7%A1%80-%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB/" title="JS基础-常见内置类"><img class="cover" src="/image/zhongguofeng.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JS基础-常见内置类</div></div></a></div><div class="next-post pull-right"><a href="/2024/07/11/JS%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="JS基础_变量和数据类型"><img class="cover" src="/image/walk.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS基础_变量和数据类型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/08/25/JS%E5%9F%BA%E7%A1%80-BOM%E6%93%8D%E4%BD%9C/" title="JS基础-BOM操作"><img class="cover" src="/image/fangao.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-25</div><div class="title">JS基础-BOM操作</div></div></a></div><div><a href="/2024/08/19/JS%E5%9F%BA%E7%A1%80-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="JS基础-事件处理"><img class="cover" src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-19</div><div class="title">JS基础-事件处理</div></div></a></div><div><a href="/2024/08/25/JS%E5%9F%BA%E7%A1%80-DOM%E5%AE%9E%E6%88%98/" title="JS基础-DOM实战"><img class="cover" src="/image/bike.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-25</div><div class="title">JS基础-DOM实战</div></div></a></div><div><a href="/2024/07/11/JS%E5%9F%BA%E7%A1%80-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="JS基础_变量和数据类型"><img class="cover" src="/image/walk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-11</div><div class="title">JS基础_变量和数据类型</div></div></a></div><div><a href="/2024/08/19/JS%E5%9F%BA%E7%A1%80DOM%E6%93%8D%E4%BD%9C/" title="JS基础DOM操作"><img class="cover" src="/image/fangao.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-19</div><div class="title">JS基础DOM操作</div></div></a></div><div><a href="/2024/08/16/JS%E5%9F%BA%E7%A1%80-%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E7%B1%BB/" title="JS基础-常见内置类"><img class="cover" src="/image/zhongguofeng.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-16</div><div class="title">JS基础-常见内置类</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">46</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#arguments%E5%8F%82%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">arguments参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number">2.</span> <span class="toc-text">回调函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">对象的常见操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%BC%95%E7%94%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">方括号和引用的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">5.</span> <span class="toc-text">对象的遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E5%A0%86%E5%86%85%E5%AD%98"><span class="toc-number">6.</span> <span class="toc-text">栈内存和堆内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">7.</span> <span class="toc-text">值类型和引用类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E4%B8%8B%E9%9D%A2%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">8.</span> <span class="toc-text">思考下面的现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this%E6%8C%87%E5%90%91%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">this指向什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript%E4%B8%AD%E7%9A%84%E7%B1%BB%EF%BC%88ES5%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">JavaScript中的类（ES5）</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3"><img src="/image/fangao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性3"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A73/" title="ES6~ES13新特性3">ES6~ES13新特性3</a><time datetime="2024-08-30T07:49:34.000Z" title="发表于 2024-08-30 15:49:34">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2"><img src="/image/bike.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6~ES13新特性2"/></a><div class="content"><a class="title" href="/2024/08/30/ES6-ES13%E6%96%B0%E7%89%B9%E6%80%A72/" title="ES6~ES13新特性2">ES6~ES13新特性2</a><time datetime="2024-08-30T07:49:21.000Z" title="发表于 2024-08-30 15:49:21">2024-08-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES13新特性1"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES13%E6%96%B0%E7%89%B9%E6%80%A71/" title="JS高级-ES13新特性1">JS高级-ES13新特性1</a><time datetime="2024-08-28T02:43:57.000Z" title="发表于 2024-08-28 10:43:57">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承"><img src="/image/zhongguofeng.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES6实现继承"/></a><div class="content"><a class="title" href="/2024/08/28/JS%E9%AB%98%E7%BA%A7-ES6%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES6实现继承">JS高级-ES6实现继承</a><time datetime="2024-08-28T02:43:16.000Z" title="发表于 2024-08-28 10:43:16">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承"><img src="/image/yewanshu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-ES5中实现继承"/></a><div class="content"><a class="title" href="/2024/08/27/JS%E9%AB%98%E7%BA%A7-ES5%E4%B8%AD%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF/" title="JS高级-ES5中实现继承">JS高级-ES5中实现继承</a><time datetime="2024-08-27T13:02:38.000Z" title="发表于 2024-08-27 21:02:38">2024-08-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/yewan.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
