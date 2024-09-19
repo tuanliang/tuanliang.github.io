@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>node_模块化导入 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前端工程化基础-node_模块化导入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node_模块化导入">
+<meta property="og:url" content="https://tuanliang.github.io/2024/09/19/node-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="前端工程化基础-node_模块化导入">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/yewanshu.jpg">
+<meta property="article:published_time" content="2024-09-19T13:06:04.000Z">
+<meta property="article:modified_time" content="2024-09-19T13:09:12.387Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="前端工程化基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/yewanshu.jpg"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/09/19/node-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'node_模块化导入',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-19 21:09:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/yewanshu.jpg')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">node_模块化导入</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-19T13:06:04.000Z" title="发表于 2024-09-19 21:06:04">2024-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-19T13:09:12.387Z" title="更新于 2024-09-19 21:09:12">2024-09-19</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%9F%BA%E7%A1%80/">前端工程化基础</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="node_模块化导入"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="特殊的全局对象"><a href="#特殊的全局对象" class="headerlink" title="特殊的全局对象"></a><strong><font style="color:#404040;">特殊的全局对象</font></strong></h3><ul>
+<li><font style="color:#404040;">__dirname：获取</font><font style="color:red;">当前文件所在的路径</font><font style="color:#404040;">：</font><ul>
+<li><font style="color:#404040;">注意：不包括后面的文件名</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">__filename：获取</font><font style="color:red;">当前文件所在的路径和文件名称</font><font style="color:#404040;">：</font><ul>
+<li><font style="color:#404040;">注意：包括后面的文件名称</font></li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1688474985339-9122a722-5571-4525-b5cb-81814c4bde05.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="模块化导入导出"><a href="#模块化导入导出" class="headerlink" title="模块化导入导出"></a>模块化导入导出</h3><ul>
+<li><font style="color:red;">exports和module.exports</font><font style="color:#404040;">可以负责</font><font style="color:red;">对模块中的内容进行导出</font><font style="color:#404040;">；</font></li>
+<li><font style="color:red;">require函数</font><font style="color:#404040;">可以帮助我们</font><font style="color:red;">导入其他模块（自定义模块、系统模块、第三方库模块）中的内容</font><font style="color:#404040;">；</font></li>
+</ul>
+<h3 id="exports导出"><a href="#exports导出" class="headerlink" title="exports导出"></a><strong><font style="color:#404040;">exports导出</font></strong></h3><ul>
+<li><font style="color:#404040;">注意：exports是一个对象，我们可以在这个对象中添加很多个属性，添加的属性会导出；</font><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1688475238136-de9cccc5-b9a2-4e31-9e03-6f2b02089387.png"></li>
+<li><font style="color:#404040;">另外一个文件中可以导入：</font></li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1688475245553-450c6339-f4a4-48f5-ba74-dc40c43273de.png"></li>
+<li><font style="color:#404040;">上面这行完成了什么操作呢？理解下面这句话，Node中的模块化一目了然</font><ul>
+<li><font style="color:#404040;">意味着main中的</font><font style="color:red;">bar变量等于exports对象</font><font style="color:#404040;">；</font></li>
+<li><font style="color:#404040;">也就是require通过各种查找方式，最终找到了exports这个对象；</font></li>
+<li><font style="color:#404040;">并且将这个</font><font style="color:red;">exports对象赋值给了bar变量</font><font style="color:#404040;">；</font></li>
+<li><font style="color:red;">bar变量就是exports对象</font><font style="color:#404040;">了；</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="module-exports导出"><a href="#module-exports导出" class="headerlink" title="module.exports导出"></a><strong><font style="color:#404040;">module.exports导出</font></strong></h3><ul>
+<li><font style="color:#404040;">但是Node中我们经常导出东西的时候，又是通过module.exports导出的：</font><ul>
+<li><font style="color:red;">module.exports和exports有什么关系或者区别呢？</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">我们追根溯源，通过维基百科中对CommonJS规范的解析：</font><ul>
+<li><font style="color:#404040;">CommonJS中是没有</font><font style="color:red;">module.exports</font><font style="color:#404040;">的概念的；</font></li>
+<li><font style="color:#404040;">但是为了实现模块的导出，Node中使用的是</font><font style="color:red;">Module的类</font><font style="color:#404040;">，</font><font style="color:red;">每一个模块都是Module的一个实例，也就是module</font><font style="color:#404040;">；</font></li>
+<li><font style="color:#404040;">所以在Node中真正用于导出的其实</font><font style="color:red;">根本不是exports</font><font style="color:#404040;">，而是</font><font style="color:red;">module.exports</font><font style="color:#404040;">；</font></li>
+<li><font style="color:#404040;">因为</font><font style="color:red;">module才是导出的真正实现者</font><font style="color:#404040;">；</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">但是，为什么exports也可以导出呢？</font><ul>
+<li><font style="color:#404040;">这是因为</font><font style="color:red;">module对象的exports属性是exports对象的一个引用</font><font style="color:#404040;">；</font></li>
+<li><font style="color:#404040;">也就是说 </font><font style="color:red;">module.exports &#x3D; exports &#x3D; main中的bar</font><font style="color:#404040;">；</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="require细节"><a href="#require细节" class="headerlink" title="require细节"></a><strong><font style="color:#404040;">require细节</font></strong></h3><ul>
+<li><font style="color:#404040;">我们现在已经知道，</font><font style="color:red;">require是一个函数</font><font style="color:#404040;">，可以帮助我们引入一个文件（模块）中导出的对象。</font></li>
+<li><font style="color:#404040;">那么，require的查找规则是怎么样的呢？</font><ul>
+<li><font style="color:#404040;">这里我总结比较常见的查找规则：</font></li>
+<li><font style="color:#404040;">导入格式如下：require(X)</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">情况一：X是一个Node核心模块，比如path、http</font><ul>
+<li><font style="color:#404040;">直接返回核心模块，并且停止查找</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">情况二：X是以 .&#x2F; 或 ..&#x2F; 或 &#x2F;（根目录）开头的</font><ul>
+<li><font style="color:red;">第一步：将X当做一个文件在对应的目录下查找；</font><ul>
+<li><font style="color:#404040;">1.如果有后缀名，按照后缀名的格式查找对应的文件</font></li>
+<li><font style="color:#404040;">2.如果没有后缀名，会按照如下顺序：</font><ul>
+<li><font style="color:#404040;">1&gt; 直接查找文件X</font></li>
+<li><font style="color:#404040;">2&gt; 查找X.js文件</font></li>
+<li><font style="color:#404040;">3&gt; 查找X.json文件</font></li>
+<li><font style="color:#404040;">4&gt; 查找X.node文件</font></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font style="color:red;">第二步：没有找到对应的文件，将X作为一个目录</font><ul>
+<li><font style="color:#404040;">查找目录下面的index文件</font><ul>
+<li><font style="color:#404040;">1&gt; 查找X&#x2F;index.js文件</font></li>
+<li><font style="color:#404040;">2&gt; 查找X&#x2F;index.json文件</font></li>
+<li><font style="color:#404040;">3&gt; 查找X&#x2F;index.node文件</font></li>
+</ul>
+</li>
+<li><font style="color:red;">如果没有找到，那么报错：not found</font></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><font style="color:#404040;">情况三：直接是一个X（没有路径），并且X不是一个核心模块</font><ul>
+<li><font style="color:#404040;">&#x2F;Users&#x2F;coderwhy&#x2F;Desktop&#x2F;Node&#x2F;TestCode&#x2F;04_learn_node&#x2F;05_javascript-module&#x2F;02_commonjs&#x2F;main.js中编写 require(‘why’)</font></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1688476624218-6d54db57-fdda-42dc-a378-dac15b760173.png"></p>
+<pre><code>- &lt;font style=&quot;color:#404040;&quot;&gt;如果上面的路径中都没有找到，那么报错：not found&lt;/font&gt;
+</code></pre>
+<h3 id="模块的加载过程"><a href="#模块的加载过程" class="headerlink" title="模块的加载过程"></a><strong><font style="color:#404040;">模块的加载过程</font></strong></h3><ul>
+<li><font style="color:#404040;">结论一：模块在被第一次引入时，模块中的js代码会被运行一次</font></li>
+<li><font style="color:#404040;">结论二：模块被多次引入时，会缓存，最终只加载（运行）一次</font><ul>
+<li><font style="color:#404040;">为什么只会加载运行一次呢？</font></li>
+<li><font style="color:#404040;">这是因为每个模块对象module都有一个属性：loaded。</font></li>
+<li><font style="color:#404040;">为false表示还没有加载，为true表示已经加载；</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">结论三：如果有循环引入，那么加载顺序是什么？</font></li>
+<li><font style="color:#404040;">如果出现右图模块的引用关系，那么加载顺序是什么呢？</font><ul>
+<li><font style="color:#404040;">这个其实是一种数据结构：图结构；</font></li>
+<li><font style="color:#404040;">图结构在遍历的过程中，有深度优先搜索（DFS, depth first search）和广度优先搜索（BFS, breadth first search）；</font></li>
+<li><font style="color:#404040;">Node采用的是深度优先算法：main -&gt; aaa -&gt; ccc -&gt; ddd -&gt; eee -&gt;bbb</font></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1688476734423-b52f0ba6-9746-4476-b081-60b485e78cb1.png"></p>
+<h3 id="ESModule-exports关键字"><a href="#ESModule-exports关键字" class="headerlink" title="ESModule-exports关键字"></a><strong><font style="color:#404040;">ESModule-exports关键字</font></strong></h3><ul>
+<li><font style="color:#404040;">export关键字将一个模块中的变量、函数、类等导出；</font></li>
+<li><font style="color:#404040;">我们希望将其他中内容全部导出，它可以有如下的方式：</font></li>
+<li><font style="color:red;">方式一</font><font style="color:#404040;">：在语句声明的前面直接加上export关键字</font></li>
+<li><font style="color:red;">方式二</font><font style="color:#404040;">：将所有需要导出的标识符，放到export后面的 {}中</font><ul>
+<li><font style="color:#404040;">注意：这里的 {}里面不是ES6的对象字面量的增强写法，{}也不是表示一个对象的；</font></li>
+<li><font style="color:#404040;">所以： export {name: name}，是错误的写法；</font></li>
+</ul>
+</li>
+<li><font style="color:red;">方式三</font><font style="color:#404040;">：导出时给标识符起一个别名</font><ul>
+<li><font style="color:#404040;">通过as关键字起别名</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="ESModule-import关键字"><a href="#ESModule-import关键字" class="headerlink" title="ESModule-import关键字"></a><strong><font style="color:#404040;">ESModule-import关键字</font></strong></h3><ul>
+<li><font style="color:#404040;">import关键字负责从另外一个模块中导入内容</font></li>
+<li><font style="color:#404040;">导入内容的方式也有多种：</font></li>
+<li><font style="color:red;">方式一</font><font style="color:#404040;">：import {标识符列表} from ‘模块’；</font><ul>
+<li><font style="color:#404040;">注意：这里的{}也不是一个对象，里面只是存放导入的标识符列表内容；</font></li>
+</ul>
+</li>
+<li><font style="color:red;">方式二</font><font style="color:#404040;">：导入时给标识符起别名</font><ul>
+<li><font style="color:#404040;">通过as关键字起别名</font></li>
+</ul>
+</li>
+<li><font style="color:red;">方式三</font><font style="color:#404040;">：通过 * 将模块功能放到一个模块功能对象（a module object）上</font></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意事项一: 在浏览器中直接使用esmodule时, 必须在文件后加上后缀名.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; name, age, sayHello &#125; <span class="keyword">from</span> <span class="string">&quot;./foo.js&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.导入方式一: </span></span><br><span class="line"><span class="comment">// import &#123; name, age, sayHello &#125; from &quot;./foo.js&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.导入方式二: 导入时给标识符起别名</span></span><br><span class="line"><span class="comment">// import &#123; name as fname, age, sayHello &#125; from &quot;./foo.js&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.导入时可以给整个模块起别名</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> foo <span class="keyword">from</span> <span class="string">&quot;./foo.js&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ESModule-export和import结合使用"><a href="#ESModule-export和import结合使用" class="headerlink" title="ESModule-export和import结合使用"></a><strong><font style="color:#404040;">ESModule-export和import结合使用</font></strong></h3><ul>
+<li><font style="color:#404040;">补充：export和import可以结合使用</font></li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1688477036896-8528bec8-5ce9-4961-bc16-2aa33b40c8f9.png"></p>
+<ul>
+<li><font style="color:#404040;">为什么要这样做呢？</font><ul>
+<li><font style="color:#404040;">在开发和封装一个功能库时，通常我们希望将暴露的所有接口放到一个文件中；</font></li>
+<li><font style="color:#404040;">这样方便指定统一的接口规范，也方便阅读；</font></li>
+<li><font style="color:#404040;">这个时候，我们就可以使用export和import结合使用；</font></li>
+</ul>
+</li>
+</ul>
+<h3 id="ESModule-default用法"><a href="#ESModule-default用法" class="headerlink" title="ESModule-default用法"></a><strong><font style="color:#404040;">ESModule-default用法</font></strong></h3><ul>
+<li><font style="color:#404040;">前面我们学习的导出功能都是</font><font style="color:red;">有名字的导出（named exports）</font><font style="color:#404040;">：</font><ul>
+<li><font style="color:#404040;">在导出export时指定了名字；</font></li>
+<li><font style="color:#404040;">在导入import时需要知道具体的名字；</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">还有一种导出叫做</font><font style="color:red;">默认导出（default export）</font><ul>
+<li><font style="color:#404040;">默认导出export时可以</font><font style="color:red;">不需要指定名字</font><font style="color:#404040;">；</font></li>
+<li><font style="color:#404040;">在</font><font style="color:red;">导入时不需要使用 {}</font><font style="color:#404040;">，并且</font><font style="color:red;">可以自己来指定名字</font><font style="color:#404040;">；</font></li>
+<li><font style="color:#404040;">它也方便我们和现有的CommonJS等规范相互操作；</font></li>
+</ul>
+</li>
+<li><font style="color:#404040;">注意：在一个模块中，</font><font style="color:red;">只能有一个默认导出</font><font style="color:#404040;">（default export）；</font></li>
+</ul>
+<p><font style="color:#404040;">a.js</font></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> [<span class="string">&quot;新歌词&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> a <span class="keyword">from</span> <span class="string">&quot;./a.js&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">a</span>())<span class="comment">// [&quot;新歌词&quot;]</span></span><br></pre></td></tr></table></figure>
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/09/19/node-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/">https://tuanliang.github.io/2024/09/19/node-模块化导入/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%9F%BA%E7%A1%80/">前端工程化基础</a></div><div class="post_share"><div class="social-share" data-image="/image/yewanshu.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/19/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7npm-yarn-cnpm/" title="包管理工具npm_yarn_cnpm"><img class="cover" src="/image/zhongguofeng.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">包管理工具npm_yarn_cnpm</div></div></a></div><div class="next-post pull-right"><a href="/2024/09/16/JS%E9%AB%98%E7%BA%A7-%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81-%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="JS高级-防抖_节流_深拷贝_事件总线"><img class="cover" src="/image/yewan.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JS高级-防抖_节流_深拷贝_事件总线</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/19/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7npm-yarn-cnpm/" title="包管理工具npm_yarn_cnpm"><img class="cover" src="/image/zhongguofeng.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-19</div><div class="title">包管理工具npm_yarn_cnpm</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">54</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.</span> <span class="toc-text">特殊的全局对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA"><span class="toc-number">2.</span> <span class="toc-text">模块化导入导出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exports%E5%AF%BC%E5%87%BA"><span class="toc-number">3.</span> <span class="toc-text">exports导出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#module-exports%E5%AF%BC%E5%87%BA"><span class="toc-number">4.</span> <span class="toc-text">module.exports导出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#require%E7%BB%86%E8%8A%82"><span class="toc-number">5.</span> <span class="toc-text">require细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="toc-number">6.</span> <span class="toc-text">模块的加载过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESModule-exports%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">7.</span> <span class="toc-text">ESModule-exports关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESModule-import%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">8.</span> <span class="toc-text">ESModule-import关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESModule-export%E5%92%8Cimport%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8"><span class="toc-number">9.</span> <span class="toc-text">ESModule-export和import结合使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESModule-default%E7%94%A8%E6%B3%95"><span class="toc-number">10.</span> <span class="toc-text">ESModule-default用法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7npm-yarn-cnpm/" title="包管理工具npm_yarn_cnpm"><img src="/image/zhongguofeng.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="包管理工具npm_yarn_cnpm"/></a><div class="content"><a class="title" href="/2024/09/19/%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7npm-yarn-cnpm/" title="包管理工具npm_yarn_cnpm">包管理工具npm_yarn_cnpm</a><time datetime="2024-09-19T13:07:51.000Z" title="发表于 2024-09-19 21:07:51">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/19/node-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/" title="node_模块化导入"><img src="/image/yewanshu.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="node_模块化导入"/></a><div class="content"><a class="title" href="/2024/09/19/node-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%AF%BC%E5%85%A5/" title="node_模块化导入">node_模块化导入</a><time datetime="2024-09-19T13:06:04.000Z" title="发表于 2024-09-19 21:06:04">2024-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/16/JS%E9%AB%98%E7%BA%A7-%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81-%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="JS高级-防抖_节流_深拷贝_事件总线"><img src="/image/yewan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-防抖_节流_深拷贝_事件总线"/></a><div class="content"><a class="title" href="/2024/09/16/JS%E9%AB%98%E7%BA%A7-%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81-%E6%B7%B1%E6%8B%B7%E8%B4%9D-%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/" title="JS高级-防抖_节流_深拷贝_事件总线">JS高级-防抖_节流_深拷贝_事件总线</a><time datetime="2024-09-16T07:03:31.000Z" title="发表于 2024-09-16 15:03:31">2024-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/16/JS%E9%AB%98%E7%BA%A7-%E5%BC%82%E5%B8%B8-Storage-%E6%AD%A3%E5%88%99/" title="JS高级-异常_Storage_正则"><img src="/image/walk.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-异常_Storage_正则"/></a><div class="content"><a class="title" href="/2024/09/16/JS%E9%AB%98%E7%BA%A7-%E5%BC%82%E5%B8%B8-Storage-%E6%AD%A3%E5%88%99/" title="JS高级-异常_Storage_正则">JS高级-异常_Storage_正则</a><time datetime="2024-09-16T07:02:13.000Z" title="发表于 2024-09-16 15:02:13">2024-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/15/JS%E9%AB%98%E7%BA%A7-await_async_%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" title="JS高级-await"><img src="/image/walk.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS高级-await"/></a><div class="content"><a class="title" href="/2024/09/15/JS%E9%AB%98%E7%BA%A7-await_async_%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" title="JS高级-await">JS高级-await</a><time datetime="2024-09-15T07:03:40.000Z" title="发表于 2024-09-15 15:03:40">2024-09-15</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/yewanshu.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
