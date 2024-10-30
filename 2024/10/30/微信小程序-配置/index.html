@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>微信小程序-配置 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="微信小程序-配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信小程序-配置">
+<meta property="og:url" content="https://tuanliang.github.io/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="微信小程序-配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/fangao.png">
+<meta property="article:published_time" content="2024-10-30T12:00:21.000Z">
+<meta property="article:modified_time" content="2024-10-30T12:06:36.958Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/fangao.png"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%85%8D%E7%BD%AE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微信小程序-配置',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-30 20:06:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">74</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/fangao.png')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">微信小程序-配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-10-30T12:00:21.000Z" title="发表于 2024-10-30 20:00:21">2024-10-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-10-30T12:06:36.958Z" title="更新于 2024-10-30 20:06:36">2024-10-30</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="微信小程序-配置"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="小程序的配置文件"><a href="#小程序的配置文件" class="headerlink" title="小程序的配置文件"></a>小程序的配置文件</h3><ul>
+<li>小程序的很多开发需求被规定在了配置文件中。</li>
+<li>为什么这样做呢?<ul>
+<li>这样做可以更有利于我们的开发效率；</li>
+<li>并且可以保证开发出来的小程序的某些风格是比较一致的；</li>
+<li>比如导航栏 – 顶部TabBar，以及页面路由等等。</li>
+</ul>
+</li>
+<li>常见的配置文件有哪些呢?<ul>
+<li><font style="color:#DF2A3F;">project.config.json</font>：项目配置文件, 比如项目名称、appid等；<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html">链接</a><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html</a></li>
+</ul>
+</li>
+<li><font style="color:#DF2A3F;">sitemap.json</font>：小程序搜索相关的；<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html">链接</a><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html">https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html</a></li>
+</ul>
+</li>
+<li><font style="color:#DF2A3F;">app.json</font>：全局配置；</li>
+<li><font style="color:#DF2A3F;">page.json</font>：页面配置；</li>
+</ul>
+</li>
+</ul>
+<h3 id="全局app配置文件"><a href="#全局app配置文件" class="headerlink" title="全局app配置文件"></a>全局app配置文件</h3><ul>
+<li>全局配置比较多, 我们这里将几个比较重要的. 完整的查看官方文档.<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html">https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html</a></li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690979776989-22f96b70-dad6-4f17-b7fd-7dc1ff04231f.png"></li>
+</ul>
+</li>
+<li><strong>pages: 页面路径列表</strong><ul>
+<li>用于指定小程序由哪些页面组成，每一项都对应一个页面的 路径（含文件名） 信息。</li>
+<li>小程序中所有的页面都是必须在pages中进行注册的。</li>
+</ul>
+</li>
+<li><strong>window: 全局的默认窗口展示</strong><ul>
+<li>用户指定窗口如何展示, 其中还包含了很多其他的属性</li>
+</ul>
+</li>
+<li><strong>tabBar: 顶部tab栏的展示</strong><ul>
+<li>具体属性稍后我们进行演示</li>
+</ul>
+</li>
+</ul>
+<h3 id="配置案例实现"><a href="#配置案例实现" class="headerlink" title="配置案例实现"></a>配置案例实现</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690979822807-9e42b26c-d571-41a3-93fe-906e30890301.png"></p>
+<h3 id="页面page配置文件"><a href="#页面page配置文件" class="headerlink" title="页面page配置文件"></a>页面page配置文件</h3><ul>
+<li>每一个小程序页面也可以使用 .json 文件来对本页面的窗口表现进行配置。<ul>
+<li>页面中配置项在当前页面会覆盖 app.json 的 window 中相同的配置项。</li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">链接</a><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html">https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html</a></li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690979885827-cef1fcb8-95b8-47ca-95fd-a9dd455534de.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="注册小程序-–-App函数"><a href="#注册小程序-–-App函数" class="headerlink" title="注册小程序 – App函数"></a>注册小程序 – App函数</h3><ul>
+<li>每个小程序都需要在 app.js 中调用 App 函数 注册小程序示例<ul>
+<li>在注册时, 可以绑定对应的生命周期函数；</li>
+<li>在生命周期函数中, 执行对应的代码；</li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html">链接</a><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html">https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html</a></li>
+</ul>
+</li>
+<li>我们来思考：注册App时，我们一般会做什么呢？<ul>
+<li><ol>
+<li>判断小程序的进入场景</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>监听生命周期函数，在生命周期中执行对应的业务逻辑，比如在某个生命周期函数中进行登录操作或者请求网络数据；</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>因为App()实例只有一个，并且是全局共享的（单例对象），所以我们可以将一些共享数据放在这里；</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="App函数的参数"><a href="#App函数的参数" class="headerlink" title="App函数的参数"></a>App函数的参数</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980033081-9c8d4b9d-0a7c-4a52-b4db-11b1b2f77d1c.png"></p>
+<h4 id="作用一：判断打开场景"><a href="#作用一：判断打开场景" class="headerlink" title="作用一：判断打开场景"></a>作用一：判断打开场景</h4><ul>
+<li>小程序的打开场景较多：<ul>
+<li>常见的打开场景：群聊会话中打开、小程序列表中打开、微信扫一扫打开、另一个小程序打开</li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html">链接</a><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html">https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html</a></li>
+</ul>
+</li>
+<li>如何确定场景?<ul>
+<li>在onLaunch和onShow生命周期回调函数中，会有<font style="color:#DF2A3F;">options参数</font>，其中有<font style="color:#DF2A3F;">scene</font>值；  <img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980105734-e298e81a-867a-4fe9-9a76-2359adbdf616.png"></li>
+</ul>
+</li>
+</ul>
+<h5 id="作用二：定义全局App的数据"><a href="#作用二：定义全局App的数据" class="headerlink" title="作用二：定义全局App的数据"></a>作用二：定义全局App的数据</h5><ul>
+<li>作用：可以在Object中定义全局App的数据<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980139097-6e626749-c78c-440a-9834-ce9c3f770b98.png"></li>
+</ul>
+</li>
+<li>定义的数据可以在其他任何页面中访问：<ul>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980145056-e93dc9ed-4e3f-412c-9ed8-ab637efeec28.png"></li>
+</ul>
+</li>
+</ul>
+<h4 id="作用三-–-生命周期函数"><a href="#作用三-–-生命周期函数" class="headerlink" title="作用三 – 生命周期函数"></a>作用三 – 生命周期函数</h4><ul>
+<li>作用：在生命周期函数中，完成应用程序启动后的初始化操作<ul>
+<li>比如登录操作（这个后续会详细讲解）；</li>
+<li>比如读取本地数据（类似于token，然后保存在全局方便使用）</li>
+<li>比如请求整个应用程序需要的数据；</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980684485-c50b631d-e5fa-43f8-8fe1-3dd08d827a33.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="注册页面-–-Page函数"><a href="#注册页面-–-Page函数" class="headerlink" title="注册页面 – Page函数"></a>注册页面 – Page函数</h3><ul>
+<li>小程序中的每个页面, 都有一个对应的js文件, 其中调用Page函数注册页面示例<ul>
+<li>在注册时, 可以绑定初始化数据、生命周期回调、事件处理函数等。</li>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html">链接</a><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html">https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html</a></li>
+</ul>
+</li>
+<li>我们来思考：注册一个Page页面时，我们一般需要做什么呢？<ul>
+<li>1.在生命周期函数中发送网络请求，从服务器获取数据；</li>
+<li>2.初始化一些数据，以方便被wxml引用展示；</li>
+<li>3.监听wxml中的事件，绑定对应的事件函数；</li>
+<li>4.其他一些监听（比如页面滚动、上拉刷新、下拉加载更多等）；</li>
+</ul>
+</li>
+</ul>
+<h3 id="注册Page时做什么呢"><a href="#注册Page时做什么呢" class="headerlink" title="注册Page时做什么呢?"></a>注册Page时做什么呢?</h3><p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980768647-f1e88a5e-de2c-4629-ae6e-103f97605f63.png"></p>
+<h3 id="上拉和下拉的监听"><a href="#上拉和下拉的监听" class="headerlink" title="上拉和下拉的监听"></a>上拉和下拉的监听</h3><ul>
+<li>监听页面的下拉刷新和上拉加载更多：<ul>
+<li>步骤一：配置页面的json文件</li>
+<li>步骤二：代码中进行监听；</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980821313-342f3c18-0c57-4797-8a8f-c7a439aab5ec.png"><img src="https://cdn.nlark.com/yuque/0/2023/png/35551100/1690980828318-3538f391-d6bd-49df-b3c7-cb0edf622e19.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E9%85%8D%E7%BD%AE/">https://tuanliang.github.io/2024/10/30/微信小程序-配置/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></div><div class="post_share"><div class="social-share" data-image="/image/fangao.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E5%86%85%E7%BD%AE%E7%BB%84%E4%BB%B6/" title="微信小程序-内置组件"><img class="cover" src="/image/flower.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">微信小程序-内置组件</div></div></a></div><div class="next-post pull-right"><a href="/2024/10/14/Vue-axios%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/" title="Vue-axios网络请求"><img class="cover" src="/image/bike.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vue-axios网络请求</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-API%E8%B0%83%E7%94%A8/" title="微信小程序-API调用"><img class="cover" src="/image/yewan.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-30</div><div class="title">微信小程序-API调用</div></div></a></div><div><a href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" title="微信小程序-组件化开发"><img class="cover" src="/image/walk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-30</div><div class="title">微信小程序-组件化开发</div></div></a></div><div><a href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E5%86%85%E7%BD%AE%E7%BB%84%E4%BB%B6/" title="微信小程序-内置组件"><img class="cover" src="/image/flower.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-30</div><div class="title">微信小程序-内置组件</div></div></a></div><div><a href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="微信小程序-事件处理"><img class="cover" src="/image/tianyuan.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-30</div><div class="title">微信小程序-事件处理</div></div></a></div><div><a href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E8%AF%AD%E6%B3%95/" title="微信小程序-语法"><img class="cover" src="/image/spring.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-30</div><div class="title">微信小程序-语法</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">74</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">小程序的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80app%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">全局app配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%A1%88%E4%BE%8B%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">配置案例实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2page%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">页面page配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E2%80%93-App%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">注册小程序 – App函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#App%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">App函数的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E4%B8%80%EF%BC%9A%E5%88%A4%E6%96%AD%E6%89%93%E5%BC%80%E5%9C%BA%E6%99%AF"><span class="toc-number">7.1.</span> <span class="toc-text">作用一：判断打开场景</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E4%BA%8C%EF%BC%9A%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80App%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">7.1.1.</span> <span class="toc-text">作用二：定义全局App的数据</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E4%B8%89-%E2%80%93-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-number">7.2.</span> <span class="toc-text">作用三 – 生命周期函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2-%E2%80%93-Page%E5%87%BD%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">注册页面 – Page函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8CPage%E6%97%B6%E5%81%9A%E4%BB%80%E4%B9%88%E5%91%A2"><span class="toc-number">9.</span> <span class="toc-text">注册Page时做什么呢?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E6%8B%89%E5%92%8C%E4%B8%8B%E6%8B%89%E7%9A%84%E7%9B%91%E5%90%AC"><span class="toc-number">10.</span> <span class="toc-text">上拉和下拉的监听</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-API%E8%B0%83%E7%94%A8/" title="微信小程序-API调用"><img src="/image/yewan.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序-API调用"/></a><div class="content"><a class="title" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-API%E8%B0%83%E7%94%A8/" title="微信小程序-API调用">微信小程序-API调用</a><time datetime="2024-10-30T12:02:34.000Z" title="发表于 2024-10-30 20:02:34">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" title="微信小程序-组件化开发"><img src="/image/walk.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序-组件化开发"/></a><div class="content"><a class="title" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" title="微信小程序-组件化开发">微信小程序-组件化开发</a><time datetime="2024-10-30T12:02:23.000Z" title="发表于 2024-10-30 20:02:23">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="微信小程序-事件处理"><img src="/image/tianyuan.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序-事件处理"/></a><div class="content"><a class="title" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/" title="微信小程序-事件处理">微信小程序-事件处理</a><time datetime="2024-10-30T12:02:11.000Z" title="发表于 2024-10-30 20:02:11">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E8%AF%AD%E6%B3%95/" title="微信小程序-语法"><img src="/image/spring.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序-语法"/></a><div class="content"><a class="title" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E8%AF%AD%E6%B3%95/" title="微信小程序-语法">微信小程序-语法</a><time datetime="2024-10-30T12:01:34.000Z" title="发表于 2024-10-30 20:01:34">2024-10-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E5%86%85%E7%BD%AE%E7%BB%84%E4%BB%B6/" title="微信小程序-内置组件"><img src="/image/flower.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="微信小程序-内置组件"/></a><div class="content"><a class="title" href="/2024/10/30/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E5%86%85%E7%BD%AE%E7%BB%84%E4%BB%B6/" title="微信小程序-内置组件">微信小程序-内置组件</a><time datetime="2024-10-30T12:01:01.000Z" title="发表于 2024-10-30 20:01:01">2024-10-30</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/fangao.png')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
