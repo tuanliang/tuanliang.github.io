@@ -1,0 +1,548 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>瑞吉外卖优化03 | 十一的博客</title><meta name="author" content="十一"><meta name="copyright" content="十一"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="这是显示在首页的概述，正文内容均会被隐藏。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="瑞吉外卖优化03">
+<meta property="og:url" content="https://tuanliang.github.io/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E4%BC%98%E5%8C%9603/index.html">
+<meta property="og:site_name" content="十一的博客">
+<meta property="og:description" content="这是显示在首页的概述，正文内容均会被隐藏。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tuanliang.github.io/image/yewanshu.jpg">
+<meta property="article:published_time" content="2025-02-26T06:35:37.000Z">
+<meta property="article:modified_time" content="2025-02-09T10:45:35.335Z">
+<meta property="article:author" content="十一">
+<meta property="article:tag" content="Java项目">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tuanliang.github.io/image/yewanshu.jpg"><link rel="shortcut icon" href="/image/sharpicons_Cheetah.png"><link rel="canonical" href="https://tuanliang.github.io/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E4%BC%98%E5%8C%9603/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '瑞吉外卖优化03',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-09 18:45:35'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/style/css/custom.css"><link rel="stylesheet" href="/style/css/iconfont.css"><link rel="stylesheet" type="text/css" href="/style/css/heoMainColor.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/image/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><meta name="referrer" content="no-referrer"><header class="post-bg" id="page-header" style="background-image: url('/image/yewanshu.jpg')"><nav id="nav"><div id="nav-group"><span id="blog-info"><a href="/" title="十一的博客"><img class="site-icon" src="/image/sharpicons_Cheetah.png"/><span class="site-name">十一的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search"><i class="iconfont icat-search"></i></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="搜索本站文章"><i class="iconfont icat-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">瑞吉外卖优化03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-26T06:35:37.000Z" title="发表于 2025-02-26 14:35:37">2025-02-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-09T10:45:35.335Z" title="更新于 2025-02-09 18:45:35">2025-02-09</time></span></div><div class="meta-secondline"><span class="post-meta-categories"><i class="iconfont icat-categories fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a></span><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="瑞吉外卖优化03"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="瑞吉外卖项目优化-Day03"><a href="#瑞吉外卖项目优化-Day03" class="headerlink" title="瑞吉外卖项目优化-Day03"></a>瑞吉外卖项目优化-Day03</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+<li>前后端分离开发</li>
+<li>Yapi</li>
+<li>Swagger</li>
+<li>项目部署</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>当前项目中，前端代码和后端代码混合在一起，是存在问题的，存在什么问题呢？</p>
+</blockquote>
+<p><img src="/assets/image-20210831232554721.png"></p>
+<p>主要存在以下几点问题：</p>
+<p>1). 开发人员同时负责前端和后端代码开发，分工不明确</p>
+<p>2). 开发效率低</p>
+<p>3). 前后端代码混合在一个工程中，不便于管理</p>
+<p>4). 对开发人员要求高(既会前端，又会后端)，人员招聘困难</p>
+<p>为了解决上述提到的问题，现在比较主流的开发方式，就是<strong>前后端分离开发</strong>，前端人员开发前端的代码，后端开发人员开发服务端的业务功能，分工明确，各司其职。我们本章节，就是需要将之前的项目进行优化改造，变成前后端分离开发的项目。</p>
+<h2 id="1-前后端分离开发"><a href="#1-前后端分离开发" class="headerlink" title="1. 前后端分离开发"></a>1. 前后端分离开发</h2><h3 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h3><p><strong>前后端分离开发</strong>，就是在项目开发过程中，对于前端代码的开发由专门的前端开发人员负责，后端代码则由后端开发人员负责，这样可以做到分工明确、各司其职，提高开发效率，前后端代码并行开发，可以加快项目开发进度。</p>
+<p>目前，前后端分离开发方式已经被越来越多的公司所采用，成为当前项目开发的主流开发方式。</p>
+<p>前后端分离开发后，从工程结构上也会发生变化，即前后端代码不再混合在同一个maven工程中，而是分为 <strong>前端工程</strong> 和 <strong>后端工程</strong> 。</p>
+<p><img src="/assets/image-20210901082121874.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485595283-f9ac1dd0-15e4-4f4a-ac60-7b3bda1a7775.png"></p>
+<p>前后端分离之后，不仅工程结构变化，后期项目上线部署时，与之前也不同:</p>
+<p>1). 之前: 前后端代码都混合在一起，我们只需要将前端和后端的代码统一打成jar包，直接运行就可以了。</p>
+<p>2). 现在: 拆分为前后端分离的项目后，最终部署时，后端工程会打成一个jar包，运行在Tomcat中(springboot内嵌的tomcat)。前端工程的静态资源，会直接部署在Nginx中进行访问。</p>
+<h3 id="1-2-开发流程"><a href="#1-2-开发流程" class="headerlink" title="1.2 开发流程"></a>1.2 开发流程</h3><p>前后端分离开发后，面临一个问题，就是前端开发人员和后端开发人员如何进行配合来共同开发一个项目？可以按照如下流程进行：</p>
+<p><img src="/assets/image-20210901084945348.png">            <img src="/assets/image-20210901085057990.png"></p>
+<p>1). 定制接口: 这里所说的接口不是我们之前在service， mapper层定义的interface； 这里的接口(API接口)就是一个http的请求地址，主要就是去定义：请求路径、请求方式、请求参数、响应数据等内容。(具体接口文档描述的信息, 如上图)</p>
+<p>2). 前后端并行开发: 依据定义好的接口信息，前端人员开发前端的代码，服务端人员开发服务端的接口； 在开发中前后端都需要进行测试，后端需要通过对应的工具来进行接口的测试，前端需要根据接口定义的参数进行Mock数据模拟测试。</p>
+<p>3). 联调: 当前后端都开发完毕并且自测通过之后，就可以进行前后端的联调测试了，在这一阶段主要就是校验接口的参数格式。</p>
+<p>4). 提测: 前后端联调测试通过之后，就可以将项目部署到测试服务器，进行自动化测试了。</p>
+<h3 id="1-3-前端技术栈"><a href="#1-3-前端技术栈" class="headerlink" title="1.3 前端技术栈"></a>1.3 前端技术栈</h3><p><strong>1). 开发工具</strong></p>
+<p>Visual Studio Code (简称VsCode)</p>
+<p>Hbuilder</p>
+<p><strong>2). 技术框架</strong></p>
+<p>A. Node.js:  Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。(类似于java语言中的JDK)。</p>
+<p>B. Vue : 目前最火的的一个前端javaScript框架。</p>
+<p>C. ElementUI: 一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库，通过ElementUI组件可以快速构建项目页面。</p>
+<p>D. Mock: 生成随机数据，拦截 Ajax 请求，前端可以借助于Mock生成测试数据进行功能测试。</p>
+<p>E. Webpack: webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Sass，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。</p>
+<h2 id="2-Yapi"><a href="#2-Yapi" class="headerlink" title="2. Yapi"></a>2. Yapi</h2><h3 id="2-1-介绍"><a href="#2-1-介绍" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h3><p><img src="/assets/image-20210901110936381.png"></p>
+<p>YApi 是高效、易用、功能强大的 api 管理平台，旨在为开发、产品、测试人员提供更优雅的接口管理服务。可以帮助开发者轻松创建、发布、维护 API，YApi 还为用户提供了优秀的交互体验，开发人员只需利用平台提供的接口数据写入工具以及简单的点击操作就可以实现接口的管理。</p>
+<p>YApi让接口开发更简单高效，让接口的管理更具可读性、可维护性，让团队协作更合理。</p>
+<p>源码地址: <a target="_blank" rel="noopener" href="https://github.com/YMFE/yapi">https://github.com/YMFE/yapi</a></p>
+<p>官方文档: <a target="_blank" rel="noopener" href="https://hellosean1025.github.io/yapi/">https://hellosean1025.github.io/yapi/</a></p>
+<p>要使用YApi，项目组需要自己进行部署，在本项目中我们可以使用课程提供的平台进行测试，域名： <a target="_blank" rel="noopener" href="https://mock-java.itheima.net/">https://mock-java.itheima.net/</a></p>
+<h3 id="2-2-使用"><a href="#2-2-使用" class="headerlink" title="2.2 使用"></a>2.2 使用</h3><h4 id="2-2-1-准备"><a href="#2-2-1-准备" class="headerlink" title="2.2.1 准备"></a>2.2.1 准备</h4><p>注册账号，登录平台</p>
+<p><img src="/assets/image-20210901115408908.png"></p>
+<h4 id="2-2-2-定义接口"><a href="#2-2-2-定义接口" class="headerlink" title="2.2.2 定义接口"></a>2.2.2 定义接口</h4><p>登录到Yapi平台之后，我们可以创建项目，在项目下创建接口分类，在对应的分类中添加接口。</p>
+<p>1). 创建项目</p>
+<p><img src="/assets/image-20210901123709298.png"></p>
+<p>2). 添加分类</p>
+<p>在当前项目中,有针对于员工、菜品、套餐、订单的操作，我们在进行接口维护时，可以针对接口进行分类，如果没有对应的分类，我们自己添加分类。</p>
+<p><img src="/assets/image-20210901125311166.png"></p>
+<p>3). 添加接口</p>
+<p><img src="/assets/image-20210901125517274.png"></p>
+<p>接口基本信息录入之后，添加提交，就可以看到该接口的基本信息：</p>
+<p><img src="/assets/image-20210901125617777.png"></p>
+<p>但是目前，接口中我们并未指定请求参数，响应数据等信息，我们可以进一步点击编辑，对该接口 详情进行编辑处理。</p>
+<p><img src="/assets/image-20210901140052897.png"></p>
+<p>4). 运行接口</p>
+<p>Yapi也提供了接口测试功能，当我们接口编辑完毕后，后端服务的代码开发完毕，启动服务，就可以使用Yapi进行接口测试了。</p>
+<p><img src="/assets/image-20210901140924816.png"></p>
+<p><font style="color:red;">注意： 由于菜品分页查询接口，是需要登录后才可以访问的，所以在测试该接口时，需要先请求员工管理接口中的登录接口，登录完成后，再访问该接口。</font></p>
+<p>在Yapi平台中，将接口文档定义好了之后，前后端开发人员就需要根据接口文档中关于接口的描述进行前端和后端功能的开发。</p>
+<h4 id="2-2-3-导出接口文档"><a href="#2-2-3-导出接口文档" class="headerlink" title="2.2.3 导出接口文档"></a>2.2.3 导出接口文档</h4><p>在Yapi平台中我们不仅可以在线阅读文档，还可以将Yapi中维护的文档直接导出来，可以导出md，json，html格式，在导出时自行选择即可 。</p>
+<p><img src="/assets/image-20210901150153468.png"></p>
+<p>而在导出的html文件或md文件中，主要描述的就是接口的基本信息， 包括： 请求路径、请求方式、接口描述、请求参数、返回数据等信息。展示形式如下：</p>
+<h4 id="2-2-4-导入接口文档"><a href="#2-2-4-导入接口文档" class="headerlink" title="2.2.4 导入接口文档"></a>2.2.4 导入接口文档</h4><p>上述我们讲解了接口文档的导出，我们也可以将外部的接口文档导入到Yapi的平台中，这样我们就不用一个接口一个接口的添加了。我们可以将课程资料中提供的json格式的接口文档直接导入Yapi平台中来。</p>
+<p>导入过程中出现的确认弹窗，选择”确认”。</p>
+<p>导入成功之后，我们就可以在Yapi平台查看到已导入的接口。</p>
+<p><img src="/assets/image-20210901151721356.png"></p>
+<h2 id="3-Swagger"><a href="#3-Swagger" class="headerlink" title="3. Swagger"></a>3. Swagger</h2><h3 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h3><p>官网：<a target="_blank" rel="noopener" href="https://swagger.io/">https://swagger.io/</a></p>
+<p><img src="/assets/image-20210901160434736.png"></p>
+<p>Swagger 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。功能主要包含以下几点:</p>
+<p>A. 使得前后端分离开发更加方便，有利于团队协作</p>
+<p>B. 接口文档在线自动生成，降低后端开发人员编写接口文档的负担</p>
+<p>C. 接口功能测试</p>
+<p>使用Swagger只需要按照它的规范去定义接口及接口相关的信息，再通过Swagger衍生出来的一系列项目和工具，就可以做到生成各种格式的接口文档，以及在线接口调试页面等等。</p>
+<p>直接使用Swagger, 需要按照Swagger的规范定义接口, 实际上就是编写Json文件，编写起来比较繁琐、并不方便, 。而在项目中使用，我们一般会选择一些现成的框架来简化文档的编写，而这些框架是基于Swagger的，如knife4j。knife4j是为Java MVC框架集成Swagger生成Api文档的增强解决方案。而我们要使用kinfe4j，需要在pom.xml中引入如下依赖即可：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="3-2-使用方式"><a href="#3-2-使用方式" class="headerlink" title="3.2 使用方式"></a>3.2 使用方式</h3><p>接下来，我们就将我们的项目集成Knife4j，来自动生成接口文档。这里我们还是需要再创建一个新的分支v1.2，在该分支中进行knife4j的集成，集成测试完毕之后，没有问题，我们再将v1.2分支合并到master。</p>
+<p>使用knife4j，主要需要操作以下几步:</p>
+<p><strong>1). 导入knife4j的maven坐标</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2). 导入knife4j相关配置类</strong></p>
+<p>这里我们就不需要再创建一个新的配置类了，我们直接在WebMvcConfig配置类中声明即可。</p>
+<p>A. 在该配置类中加上两个注解 @EnableSwagger2 @EnableKnife4j ,开启Swagger和Knife4j的功能。</p>
+<p>B. 在配置类中声明一个Docket类型的bean, 通过该bean来指定生成文档的信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableSwagger2</span></span><br><span class="line"><span class="meta">@EnableKnife4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebMvcConfig</span> <span class="keyword">extends</span> <span class="title class_">WebMvcConfigurationSupport</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置静态资源映射</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> registry</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;开始进行静态资源映射...&quot;</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/backend/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/backend/&quot;</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/front/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/front/&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 扩展mvc框架的消息转换器</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> converters</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">extendMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;扩展消息转换器...&quot;</span>);</span><br><span class="line">        <span class="comment">//创建消息转换器对象</span></span><br><span class="line">        <span class="type">MappingJackson2HttpMessageConverter</span> <span class="variable">messageConverter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MappingJackson2HttpMessageConverter</span>();</span><br><span class="line">        <span class="comment">//设置对象转换器，底层使用Jackson将Java对象转为json</span></span><br><span class="line">        messageConverter.setObjectMapper(<span class="keyword">new</span> <span class="title class_">JacksonObjectMapper</span>());</span><br><span class="line">        <span class="comment">//将上面的消息转换器对象追加到mvc框架的转换器集合中</span></span><br><span class="line">        converters.add(<span class="number">0</span>,messageConverter);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">createRestApi</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 文档类型</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.itheima.reggie.controller&quot;</span>))</span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> ApiInfo <span class="title function_">apiInfo</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ApiInfoBuilder</span>()</span><br><span class="line">                .title(<span class="string">&quot;瑞吉外卖&quot;</span>)</span><br><span class="line">                .version(<span class="string">&quot;1.0&quot;</span>)</span><br><span class="line">                .description(<span class="string">&quot;瑞吉外卖接口文档&quot;</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意： Docket声明时，指定的有一个包扫描的路径，该路径指定的是Controller所在包的路径。因为Swagger在生成接口文档时，就是根据这里指定的包路径，自动的扫描该包下的@Controller， @RestController， @RequestMapping等SpringMVC的注解，依据这些注解来生成对应的接口文档。</p>
+</blockquote>
+<p><strong>3). 设置静态资源映射</strong></p>
+<p>由于Swagger生成的在线文档中，涉及到很多静态资源，这些静态资源需要添加静态资源映射，否则接口文档页面无法访问。因此需要在 WebMvcConfig类中的addResourceHandlers方法中增加如下配置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">registry.addResourceHandler(<span class="string">&quot;doc.html&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/&quot;</span>);</span><br><span class="line">registry.addResourceHandler(<span class="string">&quot;/webjars/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>4). 在LoginCheckFilter中设置不需要处理的请求路径</strong></p>
+<p>需要将Swagger及Knife4j相关的静态资源直接放行，无需登录即可访问，否则我们就需要登录之后，才可以访问接口文档的页面。</p>
+<p>在原有的不需要处理的请求路径中，再增加如下链接：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;/doc.html&quot;</span>,</span><br><span class="line"><span class="string">&quot;/webjars/**&quot;</span>,</span><br><span class="line"><span class="string">&quot;/swagger-resources&quot;</span>,</span><br><span class="line"><span class="string">&quot;/v2/api-docs&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20210901171132242.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485767651-bc65900d-60ac-446b-b019-c9d6f1c2f984.png"></p>
+<h3 id="3-3-查看接口文档"><a href="#3-3-查看接口文档" class="headerlink" title="3.3 查看接口文档"></a>3.3 查看接口文档</h3><p>经过上面的集成配置之后，我们的项目集成Swagger及Knife4j就已经完成了，接下来我们可以重新启动项目，访问接口文档，访问链接为： <a target="_blank" rel="noopener" href="http://localhost:8080/doc.html">http://localhost:8080/doc.html</a></p>
+<p><img src="/assets/image-20210901200739975.png"></p>
+<p>我们可以看到，在所有的Controller中提供的所有的业务增删改查的接口，全部都已经自动生成了，我们通过接口文档可以看到请求的url、请求方式、请求参数、请求实例、响应的参数，响应的示例。 并且呢，我们也可以通过这份在线的接口文档，对接口进行测试。</p>
+<p><img src="/assets/image-20210901201229838.png"></p>
+<p>注意： 由于我们服务端的Controller中的业务增删改查的方法，都是必须登录之后才可以访问的，所以，我们在测试时候，也是需要先访问登录接口。登录完成之后，我们可以再访问其他接口进行测试。</p>
+<p>我们不仅可以在浏览器浏览生成的接口文档，Knife4j还支持离线文档，对接口文档进行下载，支持下载的格式有：markdown、html、word、openApi。</p>
+<p><img src="/assets/image-20210901214706928.png"></p>
+<h3 id="3-4-常用注解"><a href="#3-4-常用注解" class="headerlink" title="3.4 常用注解"></a>3.4 常用注解</h3><h4 id="3-4-1-问题说明"><a href="#3-4-1-问题说明" class="headerlink" title="3.4.1 问题说明"></a>3.4.1 问题说明</h4><p>在上面我们直接访问Knife4j的接口文档页面，可以查看到所有的接口文档信息，但是我们发现，这些接口文档分类及接口描述都是Controller的类名(驼峰命名转换而来)及方法名，而且在接口文档中，所有的请求参数，响应数据，都没有中文的描述，并不知道里面参数的含义，接口文档的可读性很差。</p>
+<p><img src="/assets/image-20210901215244539.png"></p>
+<h4 id="3-4-2-注解介绍"><a href="#3-4-2-注解介绍" class="headerlink" title="3.4.2 注解介绍"></a>3.4.2 注解介绍</h4><p>为了解决上述的问题，Swagger提供了很多的注解，通过这些注解，我们可以更好更清晰的描述我们的接口，包含接口的请求参数、响应数据、数据模型等。核心的注解，主要包含以下几个：</p>
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Api</td>
+<td>类</td>
+<td>加载Controller类上,表示对类的说明</td>
+</tr>
+<tr>
+<td>@ApiModel</td>
+<td>类(通常是实体类)</td>
+<td>描述实体类的作用</td>
+</tr>
+<tr>
+<td>@ApiModelProperty</td>
+<td>属性</td>
+<td>描述实体类的属性</td>
+</tr>
+<tr>
+<td>@ApiOperation</td>
+<td>方法</td>
+<td>说明方法的用途、作用</td>
+</tr>
+<tr>
+<td>@ApiImplicitParams</td>
+<td>方法</td>
+<td>表示一组参数说明</td>
+</tr>
+<tr>
+<td>@ApiImplicitParam</td>
+<td>方法</td>
+<td>用在@ApiImplicitParams注解中，指定一个请求参数的各个方面的属性</td>
+</tr>
+</tbody></table>
+<h4 id="3-4-3-注解测试"><a href="#3-4-3-注解测试" class="headerlink" title="3.4.3 注解测试"></a>3.4.3 注解测试</h4><p><strong>1). 实体类</strong></p>
+<blockquote>
+<p>可以通过 @ApiModel , @ApiModelProperty 来描述实体类及属性</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ApiModel(&quot;套餐&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Setmeal</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;主键&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//分类id</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;分类id&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Long categoryId;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//套餐名称</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;套餐名称&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//套餐价格</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;套餐价格&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> BigDecimal price;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//状态 0:停用 1:启用</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;状态&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer status;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//编码</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;套餐编号&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String code;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//描述信息</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;描述信息&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//图片</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;图片&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String image;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime updateTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line">    <span class="keyword">private</span> Long createUser;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line">    <span class="keyword">private</span> Long updateUser;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2). 响应实体R</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ApiModel(&quot;返回结果&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">R</span>&lt;T&gt; <span class="keyword">implements</span> <span class="title class_">Serializable</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;编码&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer code; <span class="comment">//编码：1成功，0和其它数字为失败</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;错误信息&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String msg; <span class="comment">//错误信息</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;数据&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> T data; <span class="comment">//数据</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(&quot;动态数据&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Map</span> <span class="variable">map</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>(); <span class="comment">//动态数据</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//省略静态方法 ....</span></span><br><span class="line">&#125;    </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>3). Controller类及其中的方法</strong></p>
+<blockquote>
+<p>描述Controller、方法及其方法参数，可以通过注解： @Api， @APIOperation， @ApiImplicitParams, @ApiImplicitParam</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/setmeal&quot;)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;套餐相关接口&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SetmealController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SetmealService setmealService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CategoryService categoryService;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> SetmealDishService setmealDishService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 新增套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmealDto</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping</span></span><br><span class="line">    <span class="meta">@CacheEvict(value = &quot;setmealCache&quot;,allEntries = true)</span></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;新增套餐接口&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;String&gt; <span class="title function_">save</span><span class="params">(<span class="meta">@RequestBody</span> SetmealDto setmealDto)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;套餐信息：&#123;&#125;&quot;</span>,setmealDto);</span><br><span class="line"></span><br><span class="line">        setmealService.saveWithDish(setmealDto);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> R.success(<span class="string">&quot;新增套餐成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 套餐分页查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> page</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pageSize</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;套餐分页查询接口&quot;)</span></span><br><span class="line">    <span class="meta">@ApiImplicitParams(&#123;</span></span><br><span class="line"><span class="meta">            @ApiImplicitParam(name = &quot;page&quot;,value = &quot;页码&quot;,required = true),</span></span><br><span class="line"><span class="meta">            @ApiImplicitParam(name = &quot;pageSize&quot;,value = &quot;每页记录数&quot;,required = true),</span></span><br><span class="line"><span class="meta">            @ApiImplicitParam(name = &quot;name&quot;,value = &quot;套餐名称&quot;,required = false)</span></span><br><span class="line"><span class="meta">    &#125;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;Page&gt; <span class="title function_">page</span><span class="params">(<span class="type">int</span> page,<span class="type">int</span> pageSize,String name)</span>&#123;</span><br><span class="line">        <span class="comment">//分页构造器对象</span></span><br><span class="line">        Page&lt;Setmeal&gt; pageInfo = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(page,pageSize);</span><br><span class="line">        Page&lt;SetmealDto&gt; dtoPage = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        LambdaQueryWrapper&lt;Setmeal&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//添加查询条件，根据name进行like模糊查询</span></span><br><span class="line">        queryWrapper.like(name != <span class="literal">null</span>,Setmeal::getName,name);</span><br><span class="line">        <span class="comment">//添加排序条件，根据更新时间降序排列</span></span><br><span class="line">        queryWrapper.orderByDesc(Setmeal::getUpdateTime);</span><br><span class="line"></span><br><span class="line">        setmealService.page(pageInfo,queryWrapper);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//对象拷贝</span></span><br><span class="line">        BeanUtils.copyProperties(pageInfo,dtoPage,<span class="string">&quot;records&quot;</span>);</span><br><span class="line">        List&lt;Setmeal&gt; records = pageInfo.getRecords();</span><br><span class="line"></span><br><span class="line">        List&lt;SetmealDto&gt; list = records.stream().map((item) -&gt; &#123;</span><br><span class="line">            <span class="type">SetmealDto</span> <span class="variable">setmealDto</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SetmealDto</span>();</span><br><span class="line">            <span class="comment">//对象拷贝</span></span><br><span class="line">            BeanUtils.copyProperties(item,setmealDto);</span><br><span class="line">            <span class="comment">//分类id</span></span><br><span class="line">            <span class="type">Long</span> <span class="variable">categoryId</span> <span class="operator">=</span> item.getCategoryId();</span><br><span class="line">            <span class="comment">//根据分类id查询分类对象</span></span><br><span class="line">            <span class="type">Category</span> <span class="variable">category</span> <span class="operator">=</span> categoryService.getById(categoryId);</span><br><span class="line">            <span class="keyword">if</span>(category != <span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="comment">//分类名称</span></span><br><span class="line">                <span class="type">String</span> <span class="variable">categoryName</span> <span class="operator">=</span> category.getName();</span><br><span class="line">                setmealDto.setCategoryName(categoryName);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> setmealDto;</span><br><span class="line">        &#125;).collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">        dtoPage.setRecords(list);</span><br><span class="line">        <span class="keyword">return</span> R.success(dtoPage);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除套餐</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> ids</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@DeleteMapping</span></span><br><span class="line">    <span class="meta">@CacheEvict(value = &quot;setmealCache&quot;,allEntries = true)</span></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;套餐删除接口&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;String&gt; <span class="title function_">delete</span><span class="params">(<span class="meta">@RequestParam</span> List&lt;Long&gt; ids)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;ids:&#123;&#125;&quot;</span>,ids);</span><br><span class="line"></span><br><span class="line">        setmealService.removeWithDish(ids);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> R.success(<span class="string">&quot;套餐数据删除成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据条件查询套餐数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> setmeal</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/list&quot;)</span></span><br><span class="line">    <span class="meta">@Cacheable(value = &quot;setmealCache&quot;,key = &quot;#setmeal.categoryId + &#x27;_&#x27; + #setmeal.status&quot;)</span></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;套餐条件查询接口&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;List&lt;Setmeal&gt;&gt; <span class="title function_">list</span><span class="params">(Setmeal setmeal)</span>&#123;</span><br><span class="line">        LambdaQueryWrapper&lt;Setmeal&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">        queryWrapper.eq(setmeal.getCategoryId() != <span class="literal">null</span>,Setmeal::getCategoryId,setmeal.getCategoryId());</span><br><span class="line">        queryWrapper.eq(setmeal.getStatus() != <span class="literal">null</span>,Setmeal::getStatus,setmeal.getStatus());</span><br><span class="line">        queryWrapper.orderByDesc(Setmeal::getUpdateTime);</span><br><span class="line"></span><br><span class="line">        List&lt;Setmeal&gt; list = setmealService.list(queryWrapper);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> R.success(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>4). 重启服务测试</strong></p>
+<p>我们上述通过Swagger的注解，对实体类及实体类中的属性，以及Controller和Controller的方法进行描述，接下来，我们重新启动服务，然后看一下自动生成的接口文档有何变化。</p>
+<p><img src="/assets/image-20210901221213897.png"></p>
+<p>在接口文档的页面中，我们可以看到接口的中文描述，清晰的看到每一个接口是做什么的，接口方法参数什么含义，参数是否是必填的，响应结果的参数是什么含义等，都可以清楚的描述出来。</p>
+<p>总之，我们要想清晰的描述一个接口，就需要借助于Swagger给我们提供的注解。</p>
+<h2 id="4-项目部署"><a href="#4-项目部署" class="headerlink" title="4. 项目部署"></a>4. 项目部署</h2><p>在本章节，我们要做的是项目的部署，包含前端项目的部署，及后端项目的部署。</p>
+<h3 id="4-1-部署架构"><a href="#4-1-部署架构" class="headerlink" title="4.1 部署架构"></a>4.1 部署架构</h3><p><img src="/assets/image-20210901221425159.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485849032-fc044339-491f-4f6d-8a8c-30991766acb8.png"></p>
+<p>PC端： 主要是为餐厅的员工及管理员使用的后台管理系统，对分类、菜品、套餐信息进行维护。</p>
+<p>移动端： 可以基于微信公众号或小程序实现，我们课上并未实现，这部分的工作是前端开发人员需要开发的。</p>
+<p>前端部署服务器： Nginx</p>
+<p>后端部署服务器： Tomcat(内嵌)</p>
+<h3 id="4-2-环境说明"><a href="#4-2-环境说明" class="headerlink" title="4.2 环境说明"></a>4.2 环境说明</h3><p>由于我们的服务器数量有限，就使用这三台服务器，具体的软件规划如下:</p>
+<table>
+<thead>
+<tr>
+<th>服务器</th>
+<th>软件</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>192.168.138.100</td>
+<td>Nginx(部署前端项目、配置反向代理)，MySQL(主从复制的主库)</td>
+<td>服务器A</td>
+</tr>
+<tr>
+<td>192.168.138.101</td>
+<td>JDK1.8、Git、Maven、jar(项目jar包基于内嵌Tomcat运行)、MySQL(主从复制的从库)</td>
+<td>服务器B</td>
+</tr>
+<tr>
+<td>172.17.2.94</td>
+<td>Redis(缓存中间件)</td>
+<td>服务器C</td>
+</tr>
+</tbody></table>
+<p>由于我们前面的课程中Nginx、MySQL的主从复制、Redis、JDK、Git、Maven都已经演示过安装及配置了，这里我们就不再演示软件的安装了。</p>
+<h3 id="4-3-前端部署"><a href="#4-3-前端部署" class="headerlink" title="4.3 前端部署"></a>4.3 前端部署</h3><p><strong>1). 在服务器A(192.168.138.100)中安装Nginx，将课程资料中的dist目录上传到Nginx的html目录下</strong></p>
+<p><img src="/assets/image-20210901231943256.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485870408-a475e69c-e561-4e4f-9b4d-f59a82433df5.png"></p>
+<p>将整个dist目录上传至&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;html目录下</p>
+<p><img src="/assets/image-20210901231924028.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485884708-a2c8d433-7d8a-4655-902b-73a33475b85b.png"></p>
+<p><strong>2). 修改Nginx配置文件nginx.conf</strong></p>
+<p>将nginx.conf配置文件中，将原有的监听80, 82, 8080端口号 的虚拟主机注释掉，引入如下的配置信息：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server</span> <span class="string">&#123;</span></span><br><span class="line">    <span class="attr">listen</span>       <span class="string">80;</span></span><br><span class="line">    <span class="attr">server_name</span>  <span class="string">localhost;</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">location</span> <span class="string">/ &#123;</span></span><br><span class="line">        <span class="attr">root</span>   <span class="string">html/dist;</span></span><br><span class="line">        <span class="attr">index</span>  <span class="string">index.html;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">location</span> <span class="string">^~ /api/ &#123;</span></span><br><span class="line">        <span class="attr">rewrite</span> <span class="string">^/api/(.*)$ /$1 break;</span></span><br><span class="line">        <span class="attr">proxy_pass</span> <span class="string">http://192.168.138.101:8080;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line">    </span><br><span class="line">    <span class="attr">location</span> = <span class="string">/50x.html &#123;</span></span><br><span class="line">        <span class="attr">root</span>   <span class="string">html;</span></span><br><span class="line">    <span class="attr">&#125;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20210901232931577.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485898291-33a44395-0819-4a98-ad0b-2cd4ca4774b7.png"></p>
+<p><strong>3). 通过nginx访问前端工程</strong></p>
+<p><a target="_blank" rel="noopener" href="http://192.168.138.100/">http://192.168.138.100</a></p>
+<p><img src="/assets/image-20210901233135468.png"></p>
+<h3 id="4-4-反向代理配置"><a href="#4-4-反向代理配置" class="headerlink" title="4.4 反向代理配置"></a>4.4 反向代理配置</h3><p>前端工程部署完成之后，我们可以正常的访问到系统的登录页面，点击登录按钮，可以看到服务端发起的请求，请求信息如下：</p>
+<p><img src="/assets/image-20210901234142706.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485946447-d942317f-d4f5-4f4d-8079-b44dc4ca1733.png"></p>
+<p>而大家知道，在我们之前开发的工程中，是没有&#x2F;api这个前缀的,那这个时候,在不修改服务端代码的情况下，如何处理该请求呢?</p>
+<p>实际上，通过nginx的就可以轻松解决这个问题。</p>
+<p>在上述我们配置的nginx.conf中，除了配置了静态资源的加载目录以外，我们还配置了一段反向代理的配置，配置信息如下：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">location</span> <span class="string">^~ /api/ &#123;</span></span><br><span class="line">    <span class="attr">rewrite</span> <span class="string">^/api/(.*)$ /$1 break;</span></span><br><span class="line">    <span class="attr">proxy_pass</span> <span class="string">http://192.168.138.101:8080;</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这一段配置代表，如果请求当前nginx，并且请求的路径如果是 &#x2F;api&#x2F; 开头，将会被该location处理。而在该location中，主要配置了两块儿信息： rewrite(url重写) 和 proxy_pass(反向代理)。 接下来我们就来解析一下这两项的配置。</p>
+<p><strong>1). 路径重写rewrite</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rewrite ^/api/(.*)$ /$1 break;</span><br></pre></td></tr></table></figure>
+
+<p>这里写的是一个正则表达式，代表如果请求路径是以 <code>/api/</code> 开头，后面的请求路径任意，此时将原始的url路径重写为 <code>/$1</code>，这里的<code>$1</code>指代的就是通配符 .* 这一块的内容。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/api/employee/login ------&gt; ^/api/(.*)$ --------&gt; 此时 (.*) 匹配的就是 employee/login ------&gt; 最终重写为/$1 : /employee/login</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2). 反向代理</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_pass http://192.168.138.101:8080;</span><br></pre></td></tr></table></figure>
+
+<p>路径重写后的请求，将会转发到后端的 <a target="_blank" rel="noopener" href="http://192.168.138.101:8080/">http://192.168.138.101:8080</a> 服务器中。 而这台服务器中，就部署的是我们的后端服务。</p>
+<h3 id="4-5-服务端部署"><a href="#4-5-服务端部署" class="headerlink" title="4.5 服务端部署"></a>4.5 服务端部署</h3><p><strong>1). 在服务器B(192.168.138.101)中安装jdk、git、maven、MySQL，使用git clone命令将git远程仓库的代码克隆下来</strong></p>
+<p>A. 确认JDK环境</p>
+<p><img src="/assets/image-20210902002307537.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485975525-3199410c-0a91-4416-85f7-afebc9bb8181.png"></p>
+<p>B. 确认Git环境</p>
+<p><img src="/assets/image-20210902002328883.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485986994-007ddef1-bae5-4f25-9ef0-6f32d61c2573.png"></p>
+<p>C. 确认Maven环境</p>
+<p><img src="/assets/image-20210902002357900.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724485999193-f483e82b-f706-4293-881c-865d1a6eb224.png"></p>
+<p>D. 将我们开发完成的代码推送至远程仓库,并在服务器B中克隆下来</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">创建java代码存放目录</span></span><br><span class="line">mkdir -p /usr/local/javaapp</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">切换目录</span></span><br><span class="line">cd /usr/local/javaapp</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">克隆代码 , 需要使用自己的远程仓库</span></span><br><span class="line">git clone https://gitee.com/ChuanZhiBoKe/reggie_take_out.git </span><br></pre></td></tr></table></figure>
+
+<p><img src="/assets/image-20210902004033417.png">  <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486011599-c4cbc0c1-3013-4004-9283-231c6af7cc60.png"></p>
+<p><strong>2). 将资料中提供的reggieStart.sh文件上传到服务器B，通过chmod命令设置执行权限</strong></p>
+<p><img src="/assets/image-20210902004308106.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486025363-289cca79-a7eb-4a41-a5c8-1bb54d92a63e.png"></p>
+<p><strong>3). 执行reggieStart.sh脚本文件，自动部署项目</strong></p>
+<p><img src="/assets/image-20210902005320980.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486043926-3a3b13e4-8aa1-4806-9b2e-4d98003a44d9.png"></p>
+<p>执行完shell脚本之后，我们可以通过 ps -ef|grep java 指令，查看服务是否启动。</p>
+<p><img src="/assets/image-20210902005450399.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486055057-55df5d63-d6ca-41c5-b0b3-a5fcf07a5812.png"></p>
+<p><strong>4). 访问系统测试</strong></p>
+<p><a target="_blank" rel="noopener" href="http://192.168.138.101/">http://192.168.138.101/</a></p>
+<p><img src="/assets/image-20210902005640875.png"></p>
+<h3 id="4-6-图片展示问题处理"><a href="#4-6-图片展示问题处理" class="headerlink" title="4.6 图片展示问题处理"></a>4.6 图片展示问题处理</h3><p>在上述的测试中，我们发现菜品的图片无法正常展示。原因是因为，在我们的配置文件中，图片信息依然是从 D:&#x2F;img 中加载的，但是在Linux服务器中，是不存在D盘的。</p>
+<p><img src="/assets/image-20210902005957772.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486077127-bc288632-4f5a-4035-868e-bfb3732a8b57.png"></p>
+<p><strong>1). 修改文件存储目录</strong></p>
+<p>将文件存储目录修改为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">reggie:</span><br><span class="line">  path: /usr/local/img/</span><br></pre></td></tr></table></figure>
+
+<p>修改完成之后，需要将变动的代码提交到本地仓库，并推送至远程仓库。</p>
+<p><img src="/assets/image-20210902010223733.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486096524-386b3bf1-21de-48fe-b374-6c6d206585fd.png"></p>
+<p><strong>2). 执行shell脚本,进行自动化部署</strong></p>
+<p><img src="/assets/image-20210902010440908.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486114449-de5a5d55-f451-4191-90aa-2947616703aa.png"></p>
+<p><strong>3). 将本地的测试图片文件夹img(整个文件夹)上传到服务器B的&#x2F;usr&#x2F;local目录下</strong></p>
+<p><img src="/assets/image-20210902010704691.png"> <img src="https://cdn.nlark.com/yuque/0/2024/png/35551100/1724486125269-51ce1e8a-7cb6-42c7-bfda-e6662e1d67e0.png"></p>
+<p><strong>4).访问测试</strong></p>
+<p><a target="_blank" rel="noopener" href="http://192.168.138.101/">http://192.168.138.101/</a></p>
+<p><img src="/assets/image-20210902010952388.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io">十一</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tuanliang.github.io/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E4%BC%98%E5%8C%9603/">https://tuanliang.github.io/2025/02/26/瑞吉外卖优化03/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tuanliang.github.io" target="_blank">十一的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java%E9%A1%B9%E7%9B%AE/">Java项目</a></div><div class="post_share"><div class="social-share" data-image="/image/yewanshu.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E4%BC%98%E5%8C%9602/" title="瑞吉外卖优化02"><img class="cover" src="/image/yewan.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">瑞吉外卖优化02</div></div></a></div><div class="next-post pull-right"><a href="/2025/02/06/SSM%E6%95%B4%E5%90%88/" title="SSM整合"><img class="cover" src="/image/fangao.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SSM整合</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9602/" title="瑞吉外卖02"><img class="cover" src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">瑞吉外卖02</div></div></a></div><div><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9604/" title="瑞吉外卖04"><img class="cover" src="/image/flower.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">瑞吉外卖04</div></div></a></div><div><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9605/" title="瑞吉外卖05"><img class="cover" src="/image/spring.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">瑞吉外卖05</div></div></a></div><div><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9606/" title="瑞吉外卖06"><img class="cover" src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">瑞吉外卖06</div></div></a></div><div><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9601/" title="瑞吉外卖01"><img class="cover" src="/image/bike.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">瑞吉外卖01</div></div></a></div><div><a href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E4%BC%98%E5%8C%9601/" title="瑞吉外卖优化01"><img class="cover" src="/image/tianyuan.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-26</div><div class="title">瑞吉外卖优化01</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/image/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十一</div><div class="author-info__description">归途也还可爱</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/tuanliang"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">个人简历在关于笔者一栏~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%96%E9%A1%B9%E7%9B%AE%E4%BC%98%E5%8C%96-Day03"><span class="toc-number">1.</span> <span class="toc-text">瑞吉外卖项目优化-Day03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.</span> <span class="toc-text">1. 前后端分离开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.2 开发流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="toc-number">1.3.3.</span> <span class="toc-text">1.3 前端技术栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Yapi"><span class="toc-number">1.4.</span> <span class="toc-text">2. Yapi</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">2.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BD%BF%E7%94%A8"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.2 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E5%87%86%E5%A4%87"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">2.2.1 准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E5%AE%9A%E4%B9%89%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">2.2.2 定义接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E5%AF%BC%E5%87%BA%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.4.2.3.</span> <span class="toc-text">2.2.3 导出接口文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-%E5%AF%BC%E5%85%A5%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.4.2.4.</span> <span class="toc-text">2.2.4 导入接口文档</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Swagger"><span class="toc-number">1.5.</span> <span class="toc-text">3. Swagger</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.5.1.</span> <span class="toc-text">3.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.2.</span> <span class="toc-text">3.2 使用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%9F%A5%E7%9C%8B%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.3 查看接口文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3"><span class="toc-number">1.5.4.</span> <span class="toc-text">3.4 常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-1-%E9%97%AE%E9%A2%98%E8%AF%B4%E6%98%8E"><span class="toc-number">1.5.4.1.</span> <span class="toc-text">3.4.1 问题说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-2-%E6%B3%A8%E8%A7%A3%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.5.4.2.</span> <span class="toc-text">3.4.2 注解介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4-3-%E6%B3%A8%E8%A7%A3%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.4.3.</span> <span class="toc-text">3.4.3 注解测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-number">1.6.</span> <span class="toc-text">4. 项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84"><span class="toc-number">1.6.1.</span> <span class="toc-text">4.1 部署架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E7%8E%AF%E5%A2%83%E8%AF%B4%E6%98%8E"><span class="toc-number">1.6.2.</span> <span class="toc-text">4.2 环境说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-number">1.6.3.</span> <span class="toc-text">4.3 前端部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="toc-number">1.6.4.</span> <span class="toc-text">4.4 反向代理配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-number">1.6.5.</span> <span class="toc-text">4.5 服务端部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6-%E5%9B%BE%E7%89%87%E5%B1%95%E7%A4%BA%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86"><span class="toc-number">1.6.6.</span> <span class="toc-text">4.6 图片展示问题处理</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/SpringIoc-xml%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E7%BB%84%E4%BB%B6%E7%AE%A1%E7%90%86/" title="SpringIoc-xml配置方式组件管理"><img src="/image/bike.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringIoc-xml配置方式组件管理"/></a><div class="content"><a class="title" href="/2025/02/26/SpringIoc-xml%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E7%BB%84%E4%BB%B6%E7%AE%A1%E7%90%86/" title="SpringIoc-xml配置方式组件管理">SpringIoc-xml配置方式组件管理</a><time datetime="2025-02-26T06:35:37.000Z" title="发表于 2025-02-26 14:35:37">2025-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/Spring%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1/" title="Spring声明式事务"><img src="/image/flower.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring声明式事务"/></a><div class="content"><a class="title" href="/2025/02/26/Spring%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1/" title="Spring声明式事务">Spring声明式事务</a><time datetime="2025-02-26T06:35:37.000Z" title="发表于 2025-02-26 14:35:37">2025-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/SpringIoc-%E6%B3%A8%E8%A7%A3%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E7%BB%84%E4%BB%B6%E7%AE%A1%E7%90%86/" title="SpringIoc-注解配置方式组件管理"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringIoc-注解配置方式组件管理"/></a><div class="content"><a class="title" href="/2025/02/26/SpringIoc-%E6%B3%A8%E8%A7%A3%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F%E7%BB%84%E4%BB%B6%E7%AE%A1%E7%90%86/" title="SpringIoc-注解配置方式组件管理">SpringIoc-注解配置方式组件管理</a><time datetime="2025-02-26T06:35:37.000Z" title="发表于 2025-02-26 14:35:37">2025-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/Spring%20AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" title="Spring AOP面向切面编程"><img src="/image/fangao.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring AOP面向切面编程"/></a><div class="content"><a class="title" href="/2025/02/26/Spring%20AOP%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" title="Spring AOP面向切面编程">Spring AOP面向切面编程</a><time datetime="2025-02-26T06:35:37.000Z" title="发表于 2025-02-26 14:35:37">2025-02-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9602/" title="瑞吉外卖02"><img src="/image/45663c9f2ce54eb2ae8628efb0c43390.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="瑞吉外卖02"/></a><div class="content"><a class="title" href="/2025/02/26/%E7%91%9E%E5%90%89%E5%A4%96%E5%8D%9602/" title="瑞吉外卖02">瑞吉外卖02</a><time datetime="2025-02-26T06:35:37.000Z" title="发表于 2025-02-26 14:35:37">2025-02-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/image/yewanshu.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 十一</div><div class="footer_custom_text">十一的博客</div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ws2gX4Ds7Q3br3Z7ORXNr3NI-gzGzoHsz',
+      appKey: 'NLF6z82Nd60EfdSBbPEPM0J3',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, {"placeholder":"评论一下"}))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="/style/js/custom.js"></script><script async src="/style/js/categoryBar.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/29/docker网络-dockercompose/" alt=""><img width="48" height="48" src="/image/bike.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-29</span><a class="blog-slider__title" href="2024/04/29/docker网络-dockercompose/" alt="">docker网络_docker-compose</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/29/docker网络-dockercompose/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/04/22/spring-aop、事务/" alt=""><img width="48" height="48" src="/image/walk.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-04-22</span><a class="blog-slider__title" href="2024/04/22/spring-aop、事务/" alt="">spring_aop、事务</a><div class="blog-slider__text">这是显示在首页的概述，正文内容均会被隐藏。</div><a class="blog-slider__button" href="2024/04/22/spring-aop、事务/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/06/25/软考高级系统架构师通过/" alt=""><img width="48" height="48" src="/image/spring.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-06-25</span><a class="blog-slider__title" href="2024/06/25/软考高级系统架构师通过/" alt="">软考高级系统架构师通过</a><div class="blog-slider__text">生活随笔</div><a class="blog-slider__button" href="2024/06/25/软考高级系统架构师通过/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'a4a0a2a7266d411881101f0fce4b32ec';
+  var gaud_map_key = '3dd03960aa863fc05ac90b405bf769b1';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --></body></html>
